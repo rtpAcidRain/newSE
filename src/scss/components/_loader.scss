@@ -1,0 +1,204 @@
+.no-scroll-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 900;
+  display: none;
+}
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 9999999;
+  pointer-events: none;
+  background: transparent;
+}
+
+.loading-screen {
+  position: relative;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  will-change: top;
+}
+
+.loading-screen,
+.loading-container .rounded-div-wrap.top .rounded-div,
+.loading-container .rounded-div-wrap.bottom .rounded-div {
+  @apply bg-black;
+}
+
+.loading-container .rounded-div-wrap.top .rounded-div,
+.loading-container .rounded-div-wrap.bottom .rounded-div {
+  height: 745%;
+}
+
+.rounded-div {
+  width: 150%;
+  content: "";
+  display: block;
+  position: absolute;
+  height: 750%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -86.666%);
+  z-index: 1;
+}
+
+.loading-container .rounded-div-wrap.top {
+  top: 0;
+  position: absolute;
+  transform: translateY(-99%) scale(1, -1);
+  z-index: 2;
+  height: 0vh;
+  will-change: height;
+}
+
+.loading-container .rounded-div-wrap.bottom {
+  top: unset;
+  bottom: 0;
+  position: absolute;
+  transform: translateY(99%);
+  z-index: 2;
+  height: 0vh;
+  will-change: height;
+}
+
+.rounded-div-wrap {
+  width: 100%;
+  top: 0;
+  position: relative;
+  height: 10vh;
+  overflow: hidden;
+}
+
+.loading-container .loading-words {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  will-change: opacity;
+  width: 100%;
+
+  svg {
+    @apply w-auto;
+  }
+}
+
+.loading-container .loading-words .home-active {
+  @apply text-white-100;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  padding-left: 0.6em;
+  white-space: nowrap;
+  padding-right: 0.4em;
+  will-change: opacity;
+}
+
+svg.home-active--word,
+.home-active--word svg {
+  height: 46.77px;
+  @screen sm {
+    height: setSize(86);
+  }
+}
+
+svg.home-active--word--duo,
+.home-active--word--duo svg {
+  height: 81.77px;
+  @screen sm {
+    height: setSize(86);
+  }
+}
+
+svg.home-active--word--duo--logo,
+.home-active--word--duo--logo svg {
+  height: 98px;
+  @screen sm {
+    height: setSize(86);
+  }
+}
+
+svg.home-active--logo,
+.home-active--logo svg,
+svg.logo-loader {
+  height: 98px;
+  @screen sm {
+    height: setSize(146);
+  }
+}
+
+.loading-container .dot {
+  @apply bg-white-100;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  top: 47%;
+  bottom: auto;
+  width: calc(clamp(16px, 1.2vw, 19px) / 1.65);
+  height: calc(clamp(16px, 1.2vw, 19px) / 1.65);
+  transform: translate(0, 0) scale(1);
+}
+
+.loading-container .loading-words .home-active.active {
+  display: block;
+}
+
+.loading-container .loading-words .home-active,
+.loading-container .loading-words .home-active-last {
+  opacity: 0;
+  display: none;
+}
+
+.loading-words .home-active-last.active {
+  opacity: 1 !important;
+}
+
+.loading-fade {
+  @apply bg-white-100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 90;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.once-in {
+  will-change: transform;
+}
+
+@media screen and (max-width: 540px) {
+  /* .loading-container .loading-words h2 {
+        padding-left: 0;
+     } */
+
+  /* .loading-container .dot {
+        display: none;
+     } */
+
+  .loading-container .dot {
+    top: 42%;
+  }
+}

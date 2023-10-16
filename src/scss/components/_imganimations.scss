@@ -1,0 +1,57 @@
+:root {
+  /*Настройки анимации*/
+  --TransitionDelay_up: 0s; /*задержка перед анимацией*/
+  --TransitionDuration_up: 1.3s; /*продолжительность анимации*/
+  --ScaleContent_up: 1.2; /*увеличение изображения (работает по принципу scale (зума))*/
+  --BackgroundColorShape_up: rgb(
+    10,
+    10,
+    10
+  ); /*цвет подложки во время анимации*/
+}
+
+/*Ниже не трогать*/
+.content-scale-up {
+  overflow: hidden;
+  height: 100%;
+  @apply aspect-[320/250] sm:aspect-[702/393] w-full h-auto relative;
+
+  &:last-child {
+    @apply sm:aspect-[702/422];
+  }
+}
+.content-scale-up .tn-atom {
+  width: 100%;
+  display: block !important;
+  transform: translate(-50%, 0px) scale(var(--ScaleContent_up));
+  margin-left: 50%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 100%;
+}
+
+// .content-scale-up .tn-atom + .before {
+//   transition-delay: var(--TransitionDelay_up);
+//   @apply bg-black;
+//   display: block;
+//   transform: translate(0%, 0%);
+//   position: absolute;
+//   left: -2px;
+//   right: -2px;
+//   bottom: -2px;
+//   top: -2px;
+// }
+// .content-scale-up-animation .tn-atom + .before {
+//   transition-delay: var(--TransitionDelay_up);
+//   transform: translate(0%, -100%);
+//   animation-timing-function: cubic-bezier(0.99, 0, 0.01, 1);
+//   transition-duration: var(--TransitionDuration_up);
+// }
+
+.content-scale-up-animation .tn-atom {
+  transition-delay: var(--TransitionDelay_up);
+  transition-duration: var(--TransitionDuration_up);
+  animation-timing-function: cubic-bezier(0.99, 0, 0.01, 1);
+  transform: translate(-50%, 0px) scale(1);
+}

@@ -1,0 +1,28 @@
+:root {
+  --scale-rem: 1rem;
+  --scale-text-rem: 1rem;
+
+  --halftransition: 0.2s ease;
+  --transition: 0.4s ease;
+
+  --header: 64px;
+}
+
+@screen scaleMedia {
+  :root {
+    --scale-rem: max(
+      0.5rem,
+      min(1rem, calc(0.5rem + 5 * ((100vw - 921.6px) / 518.4)))
+    );
+    --scale-text-rem: max(
+      0.7rem,
+      min(1rem, calc(0.7rem + 3 * ((100vw - 921.6px) / 518.4)))
+    );
+  }
+}
+
+@screen sm {
+  :root {
+    --header: 82px;
+  }
+}

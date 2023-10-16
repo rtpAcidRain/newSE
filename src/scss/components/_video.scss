@@ -1,0 +1,153 @@
+.video-play-shape {
+  @apply touch-auto sm:touch-none;
+  cursor: none !important;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+:root {
+  --VideoButtonColor: #000; /*цвет кнопки*/
+  --VideoButtonTextColor: #fff; /*цвет текста на кнопке*/
+  --FontFamily: Helvetica, Sans-Serif; /*Название шрифта*/
+  --FontSize: 12px; /*Размер шрифта*/
+  --FontWeight: 500; /*Толщина шрифта*/
+  --TextTransform: uppercase; /*текст капсом (убрать, если не нужен)*/
+  --VideoButtonWidth: 100px; /*ширина кнопки*/
+  --VideoButtonHeight: 100px; /*высота кнопки*/
+  --VideoButtonRadius: 50%; /*радиус скругления углов*/
+}
+
+.video__component {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#myVideo {
+  @apply relative sm:absolute;
+  background-size: cover;
+  left: 0;
+  top: 0;
+}
+
+.box {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  display: block;
+  overflow: hidden !important;
+}
+
+.transform-hide {
+  @apply sm:hidden;
+}
+
+.video-play-shape {
+  cursor: none !important;
+  touch-action: none;
+}
+
+.video-container {
+  // @apply relative sm:static;
+}
+
+.video-container__btn {
+  @apply bg-white-100 sm:fixed text-black;
+  pointer-events: none;
+  width: setSize(100) !important;
+  height: setSize(100) !important;
+  z-index: 99;
+  cursor: none;
+  border-radius: var(--VideoButtonRadius) !important;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  font-family: Manrope;
+  font-size: setSize(27);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4em;
+  will-change: transform, width;
+}
+
+.video-container__btn > div {
+  display: flex !important;
+  height: inherit;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+}
+
+.transform-block {
+  @apply relative sm:absolute;
+  z-index: 6;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+
+  @screen sm {
+    &__wrapper {
+      @apply pt-50;
+      animation: videoShow 0.4s linear forwards;
+      backface-visibility: hidden;
+    }
+    &.transform-animate .transform-block__wrapper {
+      animation: videoHide 0.4s linear forwards;
+    }
+  }
+
+  &--top {
+    bottom: auto;
+    bottom: 100%;
+
+    .transform-block__wrapper {
+      animation: videoHide 0.4s linear forwards;
+    }
+
+    &.transform-animate .transform-block__wrapper {
+      animation: videoShow 0.4s linear forwards;
+    }
+  }
+}
+
+@keyframes videoHide {
+  0% {
+    transform: translateY(99%);
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    transform: translateY(1px);
+  }
+}
+
+@keyframes videoShow {
+  0% {
+    transform: translateY(1px);
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    transform: translateY(99%);
+  }
+}
+
+.single-video-container {
+  height: 250px;
+  transition: height 0.4s linear;
+
+  &.opened {
+    height: 400px;
+  }
+  @screen sm {
+    height: calc(var(--scale-rem) * 55.6);
+    &.opened {
+      height: calc(var(--scale-rem) * 81);
+    }
+  }
+}

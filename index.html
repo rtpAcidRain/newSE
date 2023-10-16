@@ -1,0 +1,2802 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Vite Template</title>
+
+    <script src="https://diapazoncenter.com/engine/classes/js/jquery3.js?v=1"></script>
+    <script src="https://diapazoncenter.com/engine/classes/js/jqueryui3.js?v=1"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"></script> -->
+    <script
+      nomodule
+      src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      nomodule
+      src="https://polyfill.io/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll"
+      crossorigin="anonymous"
+    ></script>
+    <!-- locals -->
+    <style>
+      @font-face {
+        font-family: "Manrope";
+        src: url("./src/fonts/Manrope-Regular.eot");
+        src: url("./src/fonts/Manrope-Regular.eot?#iefix")
+            format("embedded-opentype"),
+          url("./src/fonts/Manrope-Regular.woff2") format("woff2"),
+          url("./src/fonts/Manrope-Regular.woff") format("woff"),
+          url("./src/fonts/Manrope-Regular.ttf") format("truetype"),
+          url("./src/fonts/Manrope-Regular.svg#Manrope-Regular") format("svg");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Manrope";
+        src: url("./src/fonts/Manrope-Light.eot");
+        src: url("./src/fonts/Manrope-Light.eot?#iefix")
+            format("embedded-opentype"),
+          url("./src/fonts/Manrope-Light.woff2") format("woff2"),
+          url("./src/fonts/Manrope-Light.woff") format("woff"),
+          url("./src/fonts/Manrope-Light.ttf") format("truetype"),
+          url("./src/fonts/Manrope-Light.svg#Manrope-Light") format("svg");
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Manrope";
+        src: url("./src/fonts/Manrope-ExtraLight.eot");
+        src: url("./src/fonts/Manrope-ExtraLight.eot?#iefix")
+            format("embedded-opentype"),
+          url("./src/fonts/Manrope-ExtraLight.woff2") format("woff2"),
+          url("./src/fonts/Manrope-ExtraLight.woff") format("woff"),
+          url("./src/fonts/Manrope-ExtraLight.ttf") format("truetype"),
+          url("./src/fonts/Manrope-ExtraLight.svg#Manrope-ExtraLight")
+            format("svg");
+        font-weight: 200;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Manrope";
+        src: url("./src/fonts/Manrope-ExtraBold.eot");
+        src: url("./src/fonts/Manrope-ExtraBold.eot?#iefix")
+            format("embedded-opentype"),
+          url("./src/fonts/Manrope-ExtraBold.woff2") format("woff2"),
+          url("./src/fonts/Manrope-ExtraBold.woff") format("woff"),
+          url("./src/fonts/Manrope-ExtraBold.ttf") format("truetype"),
+          url("./src/fonts/Manrope-ExtraBold.svg#Manrope-ExtraBold")
+            format("svg");
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Manrope";
+        src: url("./src/fonts/Manrope-Bold.eot");
+        src: url("./src/fonts/Manrope-Bold.eot?#iefix")
+            format("embedded-opentype"),
+          url("./src/fonts/Manrope-Bold.woff2") format("woff2"),
+          url("./src/fonts/Manrope-Bold.woff") format("woff"),
+          url("./src/fonts/Manrope-Bold.ttf") format("truetype"),
+          url("./src/fonts/Manrope-Bold.svg#Manrope-Bold") format("svg");
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Manrope";
+        src: url("./src/fonts/Manrope-Medium.eot");
+        src: url("./src/fonts/Manrope-Medium.eot?#iefix")
+            format("embedded-opentype"),
+          url("./src/fonts/Manrope-Medium.woff2") format("woff2"),
+          url("./src/fonts/Manrope-Medium.woff") format("woff"),
+          url("./src/fonts/Manrope-Medium.ttf") format("truetype"),
+          url("./src/fonts/Manrope-Medium.svg#Manrope-Medium") format("svg");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Manrope";
+        src: url("./src/fonts/Manrope-SemiBold.eot");
+        src: url("./src/fonts/Manrope-SemiBold.eot?#iefix")
+            format("embedded-opentype"),
+          url("./src/fonts/Manrope-SemiBold.woff2") format("woff2"),
+          url("./src/fonts/Manrope-SemiBold.woff") format("woff"),
+          url("./src/fonts/Manrope-SemiBold.ttf") format("truetype"),
+          url("./src/fonts/Manrope-SemiBold.svg#Manrope-SemiBold") format("svg");
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      .checkbox__item::after {
+        background-image: url("./src/img/checkbox.svg");
+      }
+    </style>
+    <script>
+      !(function (D, u) {
+        "object" == typeof exports && "undefined" != typeof module
+          ? u(exports)
+          : "function" == typeof define && define.amd
+          ? define(["exports"], u)
+          : u(((D = D || self).window = D.window || {}));
+      })(this, function (D) {
+        "use strict";
+        var _ =
+          /([\uD800-\uDBFF][\uDC00-\uDFFF](?:[\u200D\uFE0F][\uD800-\uDBFF][\uDC00-\uDFFF]){2,}|\uD83D\uDC69(?:\u200D(?:(?:\uD83D\uDC69\u200D)?\uD83D\uDC67|(?:\uD83D\uDC69\u200D)?\uD83D\uDC66)|\uD83C[\uDFFB-\uDFFF])|\uD83D\uDC69\u200D(?:\uD83D\uDC69\u200D)?\uD83D\uDC66\u200D\uD83D\uDC66|\uD83D\uDC69\u200D(?:\uD83D\uDC69\u200D)?\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67])|\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD37-\uDD39\uDD3D\uDD3E\uDDD6-\uDDDD])(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2640\u2642]\uFE0F|\uD83D\uDC69(?:\uD83C[\uDFFB-\uDFFF])\u200D(?:\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92])|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E\uDC6F\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD37-\uDD39\uDD3C-\uDD3E\uDDD6-\uDDDF])\u200D[\u2640\u2642]\uFE0F|\uD83C\uDDFD\uD83C\uDDF0|\uD83C\uDDF6\uD83C\uDDE6|\uD83C\uDDF4\uD83C\uDDF2|\uD83C\uDDE9(?:\uD83C[\uDDEA\uDDEC\uDDEF\uDDF0\uDDF2\uDDF4\uDDFF])|\uD83C\uDDF7(?:\uD83C[\uDDEA\uDDF4\uDDF8\uDDFA\uDDFC])|\uD83C\uDDE8(?:\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDEE\uDDF0-\uDDF5\uDDF7\uDDFA-\uDDFF])|(?:\u26F9|\uD83C[\uDFCB\uDFCC]|\uD83D\uDD75)(?:\uFE0F\u200D[\u2640\u2642]|(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2640\u2642])\uFE0F|(?:\uD83D\uDC41\uFE0F\u200D\uD83D\uDDE8|\uD83D\uDC69(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2695\u2696\u2708]|\uD83D\uDC69\u200D[\u2695\u2696\u2708]|\uD83D\uDC68(?:(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2695\u2696\u2708]|\u200D[\u2695\u2696\u2708]))\uFE0F|\uD83C\uDDF2(?:\uD83C[\uDDE6\uDDE8-\uDDED\uDDF0-\uDDFF])|\uD83D\uDC69\u200D(?:\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\u2764\uFE0F\u200D(?:\uD83D\uDC8B\u200D(?:\uD83D[\uDC68\uDC69])|\uD83D[\uDC68\uDC69]))|\uD83C\uDDF1(?:\uD83C[\uDDE6-\uDDE8\uDDEE\uDDF0\uDDF7-\uDDFB\uDDFE])|\uD83C\uDDEF(?:\uD83C[\uDDEA\uDDF2\uDDF4\uDDF5])|\uD83C\uDDED(?:\uD83C[\uDDF0\uDDF2\uDDF3\uDDF7\uDDF9\uDDFA])|\uD83C\uDDEB(?:\uD83C[\uDDEE-\uDDF0\uDDF2\uDDF4\uDDF7])|[#\*0-9]\uFE0F\u20E3|\uD83C\uDDE7(?:\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEF\uDDF1-\uDDF4\uDDF6-\uDDF9\uDDFB\uDDFC\uDDFE\uDDFF])|\uD83C\uDDE6(?:\uD83C[\uDDE8-\uDDEC\uDDEE\uDDF1\uDDF2\uDDF4\uDDF6-\uDDFA\uDDFC\uDDFD\uDDFF])|\uD83C\uDDFF(?:\uD83C[\uDDE6\uDDF2\uDDFC])|\uD83C\uDDF5(?:\uD83C[\uDDE6\uDDEA-\uDDED\uDDF0-\uDDF3\uDDF7-\uDDF9\uDDFC\uDDFE])|\uD83C\uDDFB(?:\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDEE\uDDF3\uDDFA])|\uD83C\uDDF3(?:\uD83C[\uDDE6\uDDE8\uDDEA-\uDDEC\uDDEE\uDDF1\uDDF4\uDDF5\uDDF7\uDDFA\uDDFF])|\uD83C\uDFF4\uDB40\uDC67\uDB40\uDC62(?:\uDB40\uDC77\uDB40\uDC6C\uDB40\uDC73|\uDB40\uDC73\uDB40\uDC63\uDB40\uDC74|\uDB40\uDC65\uDB40\uDC6E\uDB40\uDC67)\uDB40\uDC7F|\uD83D\uDC68(?:\u200D(?:\u2764\uFE0F\u200D(?:\uD83D\uDC8B\u200D)?\uD83D\uDC68|(?:(?:\uD83D[\uDC68\uDC69])\u200D)?\uD83D\uDC66\u200D\uD83D\uDC66|(?:(?:\uD83D[\uDC68\uDC69])\u200D)?\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67])|\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92])|(?:\uD83C[\uDFFB-\uDFFF])\u200D(?:\uD83C[\uDF3E\uDF73\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]))|\uD83C\uDDF8(?:\uD83C[\uDDE6-\uDDEA\uDDEC-\uDDF4\uDDF7-\uDDF9\uDDFB\uDDFD-\uDDFF])|\uD83C\uDDF0(?:\uD83C[\uDDEA\uDDEC-\uDDEE\uDDF2\uDDF3\uDDF5\uDDF7\uDDFC\uDDFE\uDDFF])|\uD83C\uDDFE(?:\uD83C[\uDDEA\uDDF9])|\uD83C\uDDEE(?:\uD83C[\uDDE8-\uDDEA\uDDF1-\uDDF4\uDDF6-\uDDF9])|\uD83C\uDDF9(?:\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDED\uDDEF-\uDDF4\uDDF7\uDDF9\uDDFB\uDDFC\uDDFF])|\uD83C\uDDEC(?:\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEE\uDDF1-\uDDF3\uDDF5-\uDDFA\uDDFC\uDDFE])|\uD83C\uDDFA(?:\uD83C[\uDDE6\uDDEC\uDDF2\uDDF3\uDDF8\uDDFE\uDDFF])|\uD83C\uDDEA(?:\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDED\uDDF7-\uDDFA])|\uD83C\uDDFC(?:\uD83C[\uDDEB\uDDF8])|(?:\u26F9|\uD83C[\uDFCB\uDFCC]|\uD83D\uDD75)(?:\uD83C[\uDFFB-\uDFFF])|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD37-\uDD39\uDD3D\uDD3E\uDDD6-\uDDDD])(?:\uD83C[\uDFFB-\uDFFF])|(?:[\u261D\u270A-\u270D]|\uD83C[\uDF85\uDFC2\uDFC7]|\uD83D[\uDC42\uDC43\uDC46-\uDC50\uDC66\uDC67\uDC70\uDC72\uDC74-\uDC76\uDC78\uDC7C\uDC83\uDC85\uDCAA\uDD74\uDD7A\uDD90\uDD95\uDD96\uDE4C\uDE4F\uDEC0\uDECC]|\uD83E[\uDD18-\uDD1C\uDD1E\uDD1F\uDD30-\uDD36\uDDD1-\uDDD5])(?:\uD83C[\uDFFB-\uDFFF])|\uD83D\uDC68(?:\u200D(?:(?:(?:\uD83D[\uDC68\uDC69])\u200D)?\uD83D\uDC67|(?:(?:\uD83D[\uDC68\uDC69])\u200D)?\uD83D\uDC66)|\uD83C[\uDFFB-\uDFFF])|(?:[\u261D\u26F9\u270A-\u270D]|\uD83C[\uDF85\uDFC2-\uDFC4\uDFC7\uDFCA-\uDFCC]|\uD83D[\uDC42\uDC43\uDC46-\uDC50\uDC66-\uDC69\uDC6E\uDC70-\uDC78\uDC7C\uDC81-\uDC83\uDC85-\uDC87\uDCAA\uDD74\uDD75\uDD7A\uDD90\uDD95\uDD96\uDE45-\uDE47\uDE4B-\uDE4F\uDEA3\uDEB4-\uDEB6\uDEC0\uDECC]|\uD83E[\uDD18-\uDD1C\uDD1E\uDD1F\uDD26\uDD30-\uDD39\uDD3D\uDD3E\uDDD1-\uDDDD])(?:\uD83C[\uDFFB-\uDFFF])?|(?:[\u231A\u231B\u23E9-\u23EC\u23F0\u23F3\u25FD\u25FE\u2614\u2615\u2648-\u2653\u267F\u2693\u26A1\u26AA\u26AB\u26BD\u26BE\u26C4\u26C5\u26CE\u26D4\u26EA\u26F2\u26F3\u26F5\u26FA\u26FD\u2705\u270A\u270B\u2728\u274C\u274E\u2753-\u2755\u2757\u2795-\u2797\u27B0\u27BF\u2B1B\u2B1C\u2B50\u2B55]|\uD83C[\uDC04\uDCCF\uDD8E\uDD91-\uDD9A\uDDE6-\uDDFF\uDE01\uDE1A\uDE2F\uDE32-\uDE36\uDE38-\uDE3A\uDE50\uDE51\uDF00-\uDF20\uDF2D-\uDF35\uDF37-\uDF7C\uDF7E-\uDF93\uDFA0-\uDFCA\uDFCF-\uDFD3\uDFE0-\uDFF0\uDFF4\uDFF8-\uDFFF]|\uD83D[\uDC00-\uDC3E\uDC40\uDC42-\uDCFC\uDCFF-\uDD3D\uDD4B-\uDD4E\uDD50-\uDD67\uDD7A\uDD95\uDD96\uDDA4\uDDFB-\uDE4F\uDE80-\uDEC5\uDECC\uDED0-\uDED2\uDEEB\uDEEC\uDEF4-\uDEF8]|\uD83E[\uDD10-\uDD3A\uDD3C-\uDD3E\uDD40-\uDD45\uDD47-\uDD4C\uDD50-\uDD6B\uDD80-\uDD97\uDDC0\uDDD0-\uDDE6])|(?:[#\*0-9\xA9\xAE\u203C\u2049\u2122\u2139\u2194-\u2199\u21A9\u21AA\u231A\u231B\u2328\u23CF\u23E9-\u23F3\u23F8-\u23FA\u24C2\u25AA\u25AB\u25B6\u25C0\u25FB-\u25FE\u2600-\u2604\u260E\u2611\u2614\u2615\u2618\u261D\u2620\u2622\u2623\u2626\u262A\u262E\u262F\u2638-\u263A\u2640\u2642\u2648-\u2653\u2660\u2663\u2665\u2666\u2668\u267B\u267F\u2692-\u2697\u2699\u269B\u269C\u26A0\u26A1\u26AA\u26AB\u26B0\u26B1\u26BD\u26BE\u26C4\u26C5\u26C8\u26CE\u26CF\u26D1\u26D3\u26D4\u26E9\u26EA\u26F0-\u26F5\u26F7-\u26FA\u26FD\u2702\u2705\u2708-\u270D\u270F\u2712\u2714\u2716\u271D\u2721\u2728\u2733\u2734\u2744\u2747\u274C\u274E\u2753-\u2755\u2757\u2763\u2764\u2795-\u2797\u27A1\u27B0\u27BF\u2934\u2935\u2B05-\u2B07\u2B1B\u2B1C\u2B50\u2B55\u3030\u303D\u3297\u3299]|\uD83C[\uDC04\uDCCF\uDD70\uDD71\uDD7E\uDD7F\uDD8E\uDD91-\uDD9A\uDDE6-\uDDFF\uDE01\uDE02\uDE1A\uDE2F\uDE32-\uDE3A\uDE50\uDE51\uDF00-\uDF21\uDF24-\uDF93\uDF96\uDF97\uDF99-\uDF9B\uDF9E-\uDFF0\uDFF3-\uDFF5\uDFF7-\uDFFF]|\uD83D[\uDC00-\uDCFD\uDCFF-\uDD3D\uDD49-\uDD4E\uDD50-\uDD67\uDD6F\uDD70\uDD73-\uDD7A\uDD87\uDD8A-\uDD8D\uDD90\uDD95\uDD96\uDDA4\uDDA5\uDDA8\uDDB1\uDDB2\uDDBC\uDDC2-\uDDC4\uDDD1-\uDDD3\uDDDC-\uDDDE\uDDE1\uDDE3\uDDE8\uDDEF\uDDF3\uDDFA-\uDE4F\uDE80-\uDEC5\uDECB-\uDED2\uDEE0-\uDEE5\uDEE9\uDEEB\uDEEC\uDEF0\uDEF3-\uDEF8]|\uD83E[\uDD10-\uDD3A\uDD3C-\uDD3E\uDD40-\uDD45\uDD47-\uDD4C\uDD50-\uDD6B\uDD80-\uDD97\uDDC0\uDDD0-\uDDE6])\uFE0F)/;
+        function k(D) {
+          return e.getComputedStyle(D);
+        }
+        function n(D, u) {
+          var e;
+          return i(D)
+            ? D
+            : "string" == (e = typeof D) && !u && D
+            ? E.call(X.querySelectorAll(D), 0)
+            : D && "object" == e && "length" in D
+            ? E.call(D, 0)
+            : D
+            ? [D]
+            : [];
+        }
+        function o(D) {
+          return "absolute" === D.position || !0 === D.absolute;
+        }
+        function p(D, u) {
+          for (var e, t = u.length; -1 < --t; )
+            if (((e = u[t]), D.substr(0, e.length) === e)) return e.length;
+        }
+        function r(D, u) {
+          void 0 === D && (D = "");
+          var e = ~D.indexOf("++"),
+            t = 1;
+          return (
+            e && (D = D.split("++").join("")),
+            function () {
+              return (
+                "<" +
+                u +
+                " style='position:relative;display:inline-block;'" +
+                (D ? " class='" + D + (e ? t++ : "") + "'>" : ">")
+              );
+            }
+          );
+        }
+        function s(D, u, e) {
+          var t = D.nodeType;
+          if (1 === t || 9 === t || 11 === t)
+            for (D = D.firstChild; D; D = D.nextSibling) s(D, u, e);
+          else
+            (3 !== t && 4 !== t) ||
+              (D.nodeValue = D.nodeValue.split(u).join(e));
+        }
+        function t(D, u) {
+          for (var e = u.length; -1 < --e; ) D.push(u[e]);
+        }
+        function u(D, u, e) {
+          for (var t; D && D !== u; ) {
+            if ((t = D._next || D.nextSibling))
+              return t.textContent.charAt(0) === e;
+            D = D.parentNode || D._parent;
+          }
+        }
+        function v(D) {
+          var u,
+            e,
+            t = n(D.childNodes),
+            F = t.length;
+          for (u = 0; u < F; u++)
+            (e = t[u])._isSplit
+              ? v(e)
+              : u && e.previousSibling && 3 === e.previousSibling.nodeType
+              ? ((e.previousSibling.nodeValue +=
+                  3 === e.nodeType ? e.nodeValue : e.firstChild.nodeValue),
+                D.removeChild(e))
+              : 3 !== e.nodeType &&
+                (D.insertBefore(e.firstChild, e), D.removeChild(e));
+        }
+        function w(D, u) {
+          return parseFloat(u[D]) || 0;
+        }
+        function x(D, e, F, C, i, n, E) {
+          var r,
+            l,
+            p,
+            d,
+            a,
+            h,
+            B,
+            f,
+            A,
+            c,
+            x,
+            g,
+            y = k(D),
+            _ = w("paddingLeft", y),
+            b = -999,
+            S = w("borderBottomWidth", y) + w("borderTopWidth", y),
+            T = w("borderLeftWidth", y) + w("borderRightWidth", y),
+            m = w("paddingTop", y) + w("paddingBottom", y),
+            N = w("paddingLeft", y) + w("paddingRight", y),
+            L = w("fontSize", y) * (e.lineThreshold || 0.2),
+            W = y.textAlign,
+            H = [],
+            O = [],
+            V = [],
+            j = e.wordDelimiter || " ",
+            M = e.tag ? e.tag : e.span ? "span" : "div",
+            R = e.type || e.split || "chars,words,lines",
+            z = i && ~R.indexOf("lines") ? [] : null,
+            P = ~R.indexOf("words"),
+            q = ~R.indexOf("chars"),
+            G = o(e),
+            I = e.linesClass,
+            J = ~(I || "").indexOf("++"),
+            K = [],
+            Q = "flex" === y.display,
+            U = D.style.display;
+          for (
+            J && (I = I.split("++").join("")),
+              Q && (D.style.display = "block"),
+              p = (l = D.getElementsByTagName("*")).length,
+              a = [],
+              r = 0;
+            r < p;
+            r++
+          )
+            a[r] = l[r];
+          if (z || G)
+            for (r = 0; r < p; r++)
+              ((h = (d = a[r]).parentNode === D) || G || (q && !P)) &&
+                ((g = d.offsetTop),
+                z &&
+                  h &&
+                  Math.abs(g - b) > L &&
+                  ("BR" !== d.nodeName || 0 === r) &&
+                  ((B = []), z.push(B), (b = g)),
+                G &&
+                  ((d._x = d.offsetLeft),
+                  (d._y = g),
+                  (d._w = d.offsetWidth),
+                  (d._h = d.offsetHeight)),
+                z &&
+                  (((d._isSplit && h) ||
+                    (!q && h) ||
+                    (P && h) ||
+                    (!P &&
+                      d.parentNode.parentNode === D &&
+                      !d.parentNode._isSplit)) &&
+                    (B.push(d), (d._x -= _), u(d, D, j) && (d._wordEnd = !0)),
+                  "BR" === d.nodeName &&
+                    ((d.nextSibling && "BR" === d.nextSibling.nodeName) ||
+                      0 === r) &&
+                    z.push([])));
+          for (r = 0; r < p; r++)
+            if (((h = (d = a[r]).parentNode === D), "BR" !== d.nodeName))
+              if (
+                (G &&
+                  ((A = d.style),
+                  P ||
+                    h ||
+                    ((d._x += d.parentNode._x), (d._y += d.parentNode._y)),
+                  (A.left = d._x + "px"),
+                  (A.top = d._y + "px"),
+                  (A.position = "absolute"),
+                  (A.display = "block"),
+                  (A.width = d._w + 1 + "px"),
+                  (A.height = d._h + "px")),
+                !P && q)
+              )
+                if (d._isSplit)
+                  for (
+                    d._next = l = d.nextSibling, d.parentNode.appendChild(d);
+                    l && 3 === l.nodeType && " " === l.textContent;
+
+                  )
+                    (d._next = l.nextSibling),
+                      d.parentNode.appendChild(l),
+                      (l = l.nextSibling);
+                else
+                  d.parentNode._isSplit
+                    ? ((d._parent = d.parentNode),
+                      !d.previousSibling &&
+                        d.firstChild &&
+                        (d.firstChild._isFirst = !0),
+                      d.nextSibling &&
+                        " " === d.nextSibling.textContent &&
+                        !d.nextSibling.nextSibling &&
+                        K.push(d.nextSibling),
+                      (d._next =
+                        d.nextSibling && d.nextSibling._isFirst
+                          ? null
+                          : d.nextSibling),
+                      d.parentNode.removeChild(d),
+                      a.splice(r--, 1),
+                      p--)
+                    : h ||
+                      ((g = !d.nextSibling && u(d.parentNode, D, j)),
+                      d.parentNode._parent &&
+                        d.parentNode._parent.appendChild(d),
+                      g && d.parentNode.appendChild(X.createTextNode(" ")),
+                      "span" === M && (d.style.display = "inline"),
+                      H.push(d));
+              else
+                d.parentNode._isSplit && !d._isSplit && "" !== d.innerHTML
+                  ? O.push(d)
+                  : q &&
+                    !d._isSplit &&
+                    ("span" === M && (d.style.display = "inline"), H.push(d));
+            else
+              z || G
+                ? (d.parentNode && d.parentNode.removeChild(d),
+                  a.splice(r--, 1),
+                  p--)
+                : P || D.appendChild(d);
+          for (r = K.length; -1 < --r; ) K[r].parentNode.removeChild(K[r]);
+          if (z) {
+            for (
+              G &&
+                ((c = X.createElement(M)),
+                D.appendChild(c),
+                (x = c.offsetWidth + "px"),
+                (g = c.offsetParent === D ? 0 : D.offsetLeft),
+                D.removeChild(c)),
+                A = D.style.cssText,
+                D.style.cssText = "display:none;";
+              D.firstChild;
+
+            )
+              D.removeChild(D.firstChild);
+            for (
+              f = " " === j && (!G || (!P && !q)), r = 0;
+              r < z.length;
+              r++
+            ) {
+              for (
+                B = z[r],
+                  (c = X.createElement(M)).style.cssText =
+                    "display:block;text-align:" +
+                    W +
+                    ";position:" +
+                    (G ? "absolute;" : "relative;"),
+                  I && (c.className = I + (J ? r + 1 : "")),
+                  V.push(c),
+                  p = B.length,
+                  l = 0;
+                l < p;
+                l++
+              )
+                "BR" !== B[l].nodeName &&
+                  ((d = B[l]),
+                  c.appendChild(d),
+                  f && d._wordEnd && c.appendChild(X.createTextNode(" ")),
+                  G &&
+                    (0 === l &&
+                      ((c.style.top = d._y + "px"),
+                      (c.style.left = _ + g + "px")),
+                    (d.style.top = "0px"),
+                    g && (d.style.left = d._x - g + "px")));
+              0 === p
+                ? (c.innerHTML = "&nbsp;")
+                : P || q || (v(c), s(c, String.fromCharCode(160), " ")),
+                G && ((c.style.width = x), (c.style.height = d._h + "px")),
+                D.appendChild(c);
+            }
+            D.style.cssText = A;
+          }
+          G &&
+            (E > D.clientHeight &&
+              ((D.style.height = E - m + "px"),
+              D.clientHeight < E && (D.style.height = E + S + "px")),
+            n > D.clientWidth &&
+              ((D.style.width = n - N + "px"),
+              D.clientWidth < n && (D.style.width = n + T + "px"))),
+            Q &&
+              (U ? (D.style.display = U) : D.style.removeProperty("display")),
+            t(F, H),
+            P && t(C, O),
+            t(i, V);
+        }
+        function y(D, u, e, t) {
+          var F,
+            C,
+            i,
+            n,
+            E,
+            r,
+            l,
+            d,
+            a = u.tag ? u.tag : u.span ? "span" : "div",
+            h = ~(u.type || u.split || "chars,words,lines").indexOf("chars"),
+            B = o(u),
+            f = u.wordDelimiter || " ",
+            A = " " !== f ? "" : B ? "&#173; " : " ",
+            c = "</" + a + ">",
+            x = 1,
+            g = u.specialChars
+              ? "function" == typeof u.specialChars
+                ? u.specialChars
+                : p
+              : null,
+            y = X.createElement("div"),
+            v = D.parentNode;
+          for (
+            v.insertBefore(y, D),
+              y.textContent = D.nodeValue,
+              v.removeChild(D),
+              l =
+                -1 !==
+                (F = (function getText(D) {
+                  var u = D.nodeType,
+                    e = "";
+                  if (1 === u || 9 === u || 11 === u) {
+                    if ("string" == typeof D.textContent) return D.textContent;
+                    for (D = D.firstChild; D; D = D.nextSibling)
+                      e += getText(D);
+                  } else if (3 === u || 4 === u) return D.nodeValue;
+                  return e;
+                })((D = y))).indexOf("<"),
+              !1 !== u.reduceWhiteSpace &&
+                (F = F.replace(S, " ").replace(b, "")),
+              l && (F = F.split("<").join("{{LT}}")),
+              E = F.length,
+              C = (" " === F.charAt(0) ? A : "") + e(),
+              i = 0;
+            i < E;
+            i++
+          )
+            if (((r = F.charAt(i)), g && (d = g(F.substr(i), u.specialChars))))
+              (r = F.substr(i, d || 1)),
+                (C += h && " " !== r ? t() + r + "</" + a + ">" : r),
+                (i += d - 1);
+            else if (r === f && F.charAt(i - 1) !== f && i) {
+              for (C += x ? c : "", x = 0; F.charAt(i + 1) === f; )
+                (C += A), i++;
+              i === E - 1
+                ? (C += A)
+                : ")" !== F.charAt(i + 1) && ((C += A + e()), (x = 1));
+            } else
+              "{" === r && "{{LT}}" === F.substr(i, 6)
+                ? ((C += h ? t() + "{{LT}}</" + a + ">" : "{{LT}}"), (i += 5))
+                : (55296 <= r.charCodeAt(0) && r.charCodeAt(0) <= 56319) ||
+                  (65024 <= F.charCodeAt(i + 1) && F.charCodeAt(i + 1) <= 65039)
+                ? ((n =
+                    ((F.substr(i, 12).split(_) || [])[1] || "").length || 2),
+                  (C +=
+                    h && " " !== r
+                      ? t() + F.substr(i, n) + "</" + a + ">"
+                      : F.substr(i, n)),
+                  (i += n - 1))
+                : (C += h && " " !== r ? t() + r + "</" + a + ">" : r);
+          (D.outerHTML = C + (x ? c : "")), l && s(v, "{{LT}}", "<");
+        }
+        function z(D, u, e, t) {
+          var F,
+            C,
+            i = n(D.childNodes),
+            E = i.length,
+            s = o(u);
+          if (3 !== D.nodeType || 1 < E) {
+            for (u.absolute = !1, F = 0; F < E; F++)
+              ((C = i[F])._next = C._isFirst = C._parent = C._wordEnd = null),
+                (3 === C.nodeType && !/\S+/.test(C.nodeValue)) ||
+                  (s &&
+                    3 !== C.nodeType &&
+                    "inline" === k(C).display &&
+                    ((C.style.display = "inline-block"),
+                    (C.style.position = "relative")),
+                  (C._isSplit = !0),
+                  z(C, u, e, t));
+            return (u.absolute = s), void (D._isSplit = !0);
+          }
+          y(D, u, e, t);
+        }
+        var X,
+          e,
+          F,
+          C,
+          b = /(?:\r|\n|\t\t)/g,
+          S = /(?:\s\s+)/g,
+          i = Array.isArray,
+          E = [].slice,
+          l =
+            (((C = SplitText.prototype).split = function split(D) {
+              this.isSplit && this.revert(),
+                (this.vars = D = D || this.vars),
+                (this._originals.length =
+                  this.chars.length =
+                  this.words.length =
+                  this.lines.length =
+                    0);
+              for (
+                var u,
+                  e,
+                  t,
+                  F = this.elements.length,
+                  C = D.tag ? D.tag : D.span ? "span" : "div",
+                  i = r(D.wordsClass, C),
+                  n = r(D.charsClass, C);
+                -1 < --F;
+
+              )
+                (t = this.elements[F]),
+                  (this._originals[F] = t.innerHTML),
+                  (u = t.clientHeight),
+                  (e = t.clientWidth),
+                  z(t, D, i, n),
+                  x(t, D, this.chars, this.words, this.lines, e, u);
+              return (
+                this.chars.reverse(),
+                this.words.reverse(),
+                this.lines.reverse(),
+                (this.isSplit = !0),
+                this
+              );
+            }),
+            (C.revert = function revert() {
+              var e = this._originals;
+              if (!e) throw "revert() call wasn't scoped properly.";
+              return (
+                this.elements.forEach(function (D, u) {
+                  return (D.innerHTML = e[u]);
+                }),
+                (this.chars = []),
+                (this.words = []),
+                (this.lines = []),
+                (this.isSplit = !1),
+                this
+              );
+            }),
+            (SplitText.create = function create(D, u) {
+              return new SplitText(D, u);
+            }),
+            SplitText);
+        function SplitText(D, u) {
+          F ||
+            (function _initCore() {
+              (X = document), (e = window), (F = 1);
+            })(),
+            (this.elements = n(D)),
+            (this.chars = []),
+            (this.words = []),
+            (this.lines = []),
+            (this._originals = []),
+            (this.vars = u || {}),
+            this.split(u);
+        }
+        (l.version = "3.8.0"), (D.SplitText = l), (D.default = l);
+        if (typeof window === "undefined" || window !== D) {
+          Object.defineProperty(D, "__esModule", { value: !0 });
+        } else {
+          delete D.default;
+        }
+      });
+    </script>
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+
+  <body class="bg-black text-white-100">
+    <div class="no-scroll-overlay"></div>
+    <div class="text-12.1"></div>
+    <div class="loading-container">
+      <div class="loading-screen">
+        <div class="rounded-div-wrap top">
+          <div class="rounded-div"></div>
+        </div>
+        <div class="loading-words">
+          <svg
+            class="home-active home-active-first home-active--word"
+            viewBox="0 0 332 55"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21.539 48.96C16.9523 48.96 13.059 47.9467 9.85901 45.92C6.65901 43.8933 4.21634 41.0773 2.53101 37.472C0.867006 33.8667 0.0350056 29.696 0.0350056 24.96C0.0350056 20.224 0.867006 16.0533 2.53101 12.448C4.21634 8.84266 6.65901 6.02666 9.85901 4C13.059 1.97333 16.9523 0.959999 21.539 0.959999C26.147 0.959999 30.051 1.97333 33.251 4C36.451 6.02666 38.883 8.84266 40.547 12.448C42.211 16.0533 43.043 20.224 43.043 24.96C43.043 29.696 42.211 33.8667 40.547 37.472C38.883 41.0773 36.451 43.8933 33.251 45.92C30.051 47.9467 26.147 48.96 21.539 48.96ZM21.539 43.52C24.9737 43.5413 27.8323 42.7733 30.115 41.216C32.419 39.6373 34.1363 37.4507 35.267 34.656C36.419 31.8613 36.995 28.6293 36.995 24.96C36.995 21.2693 36.419 18.0373 35.267 15.264C34.1363 12.4907 32.419 10.3253 30.115 8.768C27.8323 7.21067 24.9737 6.42133 21.539 6.4C18.1043 6.37866 15.2457 7.14666 12.963 8.704C10.7017 10.2613 8.99501 12.4373 7.84301 15.232C6.69101 18.0267 6.10434 21.2693 6.08301 24.96C6.06167 28.6293 6.62701 31.8507 7.77901 34.624C8.93101 37.3973 10.6483 39.5733 12.931 41.152C15.235 42.7093 18.1043 43.4987 21.539 43.52ZM61.47 48.96C57.9713 48.96 54.9953 48.1813 52.542 46.624C50.11 45.0453 48.254 42.88 46.974 40.128C45.694 37.376 45.0327 34.24 44.99 30.72C45.0327 27.1147 45.7047 23.9467 47.006 21.216C48.3287 18.464 50.2167 16.32 52.67 14.784C55.1233 13.248 58.078 12.48 61.534 12.48C65.182 12.48 68.318 13.376 70.942 15.168C73.5873 16.96 75.358 19.4133 76.254 22.528L70.622 24.224C69.8967 22.2187 68.7127 20.6613 67.07 19.552C65.4487 18.4427 63.582 17.888 61.47 17.888C59.102 17.888 57.15 18.4427 55.614 19.552C54.078 20.64 52.9367 22.1547 52.19 24.096C51.4433 26.016 51.0593 28.224 51.038 30.72C51.0807 34.56 51.966 37.664 53.694 40.032C55.4433 42.3787 58.0353 43.552 61.47 43.552C63.7313 43.552 65.6087 43.04 67.102 42.016C68.5953 40.9707 69.726 39.4667 70.494 37.504L76.254 39.008C75.0593 42.2293 73.1927 44.6933 70.654 46.4C68.1153 48.1067 65.054 48.96 61.47 48.96ZM80.193 48V13.44H94.913C95.7877 13.44 96.7263 13.4933 97.729 13.6C98.753 13.6853 99.681 13.8453 100.513 14.08C102.369 14.5707 103.894 15.584 105.089 17.12C106.305 18.6347 106.913 20.5547 106.913 22.88C106.913 24.1813 106.71 25.312 106.305 26.272C105.921 27.232 105.366 28.064 104.641 28.768C104.321 29.088 103.969 29.376 103.585 29.632C103.201 29.888 102.817 30.0907 102.433 30.24C103.18 30.368 103.937 30.656 104.705 31.104C105.921 31.7653 106.87 32.6933 107.553 33.888C108.257 35.0827 108.609 36.608 108.609 38.464C108.609 40.8107 108.044 42.752 106.913 44.288C105.782 45.8027 104.225 46.848 102.241 47.424C101.409 47.6587 100.492 47.8187 99.489 47.904C98.4863 47.968 97.5157 48 96.577 48H80.193ZM85.953 43.36H96.257C96.705 43.36 97.2383 43.3173 97.857 43.232C98.497 43.1467 99.0623 43.04 99.553 42.912C100.662 42.592 101.462 41.9947 101.953 41.12C102.465 40.2453 102.721 39.296 102.721 38.272C102.721 36.9067 102.337 35.7973 101.569 34.944C100.822 34.0907 99.8303 33.5573 98.593 33.344C98.145 33.216 97.6543 33.1413 97.121 33.12C96.609 33.0987 96.1503 33.088 95.745 33.088H85.953V43.36ZM85.953 28.384H94.529C95.1263 28.384 95.7557 28.352 96.417 28.288C97.0783 28.2027 97.6543 28.064 98.145 27.872C99.1263 27.5093 99.841 26.912 100.289 26.08C100.758 25.2267 100.993 24.2987 100.993 23.296C100.993 22.1867 100.737 21.216 100.225 20.384C99.7343 19.5307 98.977 18.944 97.953 18.624C97.2703 18.368 96.5023 18.2293 95.649 18.208C94.817 18.1653 94.2837 18.144 94.049 18.144H85.953V28.384ZM127.454 48.96C124.062 48.96 121.096 48.2133 118.558 46.72C116.04 45.2053 114.078 43.104 112.67 40.416C111.262 37.7067 110.558 34.5493 110.558 30.944C110.558 27.168 111.251 23.904 112.638 21.152C114.024 18.3787 115.955 16.2453 118.43 14.752C120.926 13.2373 123.848 12.48 127.198 12.48C130.675 12.48 133.63 13.28 136.062 14.88C138.515 16.48 140.35 18.7627 141.566 21.728C142.803 24.6933 143.336 28.224 143.166 32.32H137.406V30.272C137.342 26.0267 136.478 22.8587 134.814 20.768C133.15 18.656 130.675 17.6 127.39 17.6C123.87 17.6 121.192 18.7307 119.358 20.992C117.523 23.2533 116.606 26.496 116.606 30.72C116.606 34.7947 117.523 37.952 119.358 40.192C121.192 42.432 123.806 43.552 127.198 43.552C129.48 43.552 131.464 43.0293 133.15 41.984C134.835 40.9387 136.158 39.4347 137.118 37.472L142.59 39.36C141.246 42.4107 139.219 44.7787 136.51 46.464C133.822 48.128 130.803 48.96 127.454 48.96ZM114.686 32.32V27.744H140.222V32.32H114.686ZM186.386 54.4V48H147.698V13.44H153.202V42.816H165.106V13.44H170.61V42.816H182.482V13.44H187.986V42.816H192.082V54.4H186.386ZM209.646 48.96C206.254 48.96 203.289 48.2133 200.75 46.72C198.233 45.2053 196.27 43.104 194.862 40.416C193.454 37.7067 192.75 34.5493 192.75 30.944C192.75 27.168 193.443 23.904 194.83 21.152C196.217 18.3787 198.147 16.2453 200.622 14.752C203.118 13.2373 206.041 12.48 209.39 12.48C212.867 12.48 215.822 13.28 218.254 14.88C220.707 16.48 222.542 18.7627 223.758 21.728C224.995 24.6933 225.529 28.224 225.358 32.32H219.598V30.272C219.534 26.0267 218.67 22.8587 217.006 20.768C215.342 18.656 212.867 17.6 209.582 17.6C206.062 17.6 203.385 18.7307 201.55 20.992C199.715 23.2533 198.798 26.496 198.798 30.72C198.798 34.7947 199.715 37.952 201.55 40.192C203.385 42.432 205.998 43.552 209.39 43.552C211.673 43.552 213.657 43.0293 215.342 41.984C217.027 40.9387 218.35 39.4347 219.31 37.472L224.782 39.36C223.438 42.4107 221.411 44.7787 218.702 46.464C216.014 48.128 212.995 48.96 209.646 48.96ZM196.878 32.32V27.744H222.414V32.32H196.878ZM229.891 48V13.44H235.587V28H253.763V13.44H259.459V48H253.763V33.408H235.587V48H229.891ZM294.151 13.44V48H288.647V22.528L270.535 48H265.831V13.44H271.335V38.56L289.479 13.44H294.151ZM315.529 48.96C312.137 48.96 309.171 48.2133 306.633 46.72C304.115 45.2053 302.153 43.104 300.745 40.416C299.337 37.7067 298.633 34.5493 298.633 30.944C298.633 27.168 299.326 23.904 300.713 21.152C302.099 18.3787 304.03 16.2453 306.505 14.752C309.001 13.2373 311.923 12.48 315.273 12.48C318.75 12.48 321.705 13.28 324.137 14.88C326.59 16.48 328.425 18.7627 329.641 21.728C330.878 24.6933 331.411 28.224 331.241 32.32H325.481V30.272C325.417 26.0267 324.553 22.8587 322.889 20.768C321.225 18.656 318.75 17.6 315.465 17.6C311.945 17.6 309.267 18.7307 307.433 20.992C305.598 23.2533 304.681 26.496 304.681 30.72C304.681 34.7947 305.598 37.952 307.433 40.192C309.267 42.432 311.881 43.552 315.273 43.552C317.555 43.552 319.539 43.0293 321.225 41.984C322.91 40.9387 324.233 39.4347 325.193 37.472L330.665 39.36C329.321 42.4107 327.294 44.7787 324.585 46.464C321.897 48.128 318.878 48.96 315.529 48.96ZM302.761 32.32V27.744H328.297V32.32H302.761Z"
+              fill="white"
+            />
+          </svg>
+          <svg
+            class="home-active home-active--word"
+            viewBox="0 0 440 63"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.515001 47L15.939 0.919998H23.875L39.299 47H33.379L18.947 4.248H20.739L6.435 47H0.515001ZM7.939 36.216V30.872H31.875V36.216H7.939ZM58.3395 47.96C55.0968 47.96 52.3662 47.16 50.1475 45.56C47.9288 43.9387 46.2435 41.752 45.0915 39C43.9608 36.2267 43.3955 33.1227 43.3955 29.688C43.3955 26.2107 43.9608 23.096 45.0915 20.344C46.2435 17.592 47.9288 15.4267 50.1475 13.848C52.3875 12.2693 55.1288 11.48 58.3715 11.48C61.5715 11.48 64.3235 12.28 66.6275 13.88C68.9528 15.4587 70.7342 17.624 71.9715 20.376C73.2088 23.128 73.8275 26.232 73.8275 29.688C73.8275 33.144 73.2088 36.248 71.9715 39C70.7342 41.752 68.9528 43.9387 66.6275 45.56C64.3235 47.16 61.5608 47.96 58.3395 47.96ZM42.4355 62.36V12.44H47.5235V37.88H48.1635V62.36H42.4355ZM57.6355 42.744C59.9182 42.744 61.8062 42.168 63.2995 41.016C64.7928 39.864 65.9128 38.3067 66.6595 36.344C67.4062 34.36 67.7795 32.1413 67.7795 29.688C67.7795 27.256 67.4062 25.0587 66.6595 23.096C65.9342 21.1333 64.8035 19.576 63.2675 18.424C61.7528 17.272 59.8222 16.696 57.4755 16.696C55.2355 16.696 53.3795 17.2507 51.9075 18.36C50.4355 19.448 49.3368 20.9733 48.6115 22.936C47.8862 24.8773 47.5235 27.128 47.5235 29.688C47.5235 32.2053 47.8755 34.456 48.5795 36.44C49.3048 38.4027 50.4142 39.9493 51.9075 41.08C53.4008 42.1893 55.3102 42.744 57.6355 42.744ZM73.1925 47L86.4085 29.528L73.4805 12.44H80.2645L89.7365 25.112L99.1125 12.44H105.896L92.9685 29.528L106.216 47H99.4005L89.7365 33.944L80.0085 47H73.1925ZM137.073 12.44V47H131.569V21.528L113.457 47H108.753V12.44H114.257V37.56L132.401 12.44H137.073ZM152.627 47V17.624H140.595V12.44H170.355V17.624H158.323V47H152.627ZM188.828 47.96C185.436 47.96 182.471 47.2133 179.932 45.72C177.415 44.2053 175.452 42.104 174.044 39.416C172.636 36.7067 171.932 33.5493 171.932 29.944C171.932 26.168 172.626 22.904 174.012 20.152C175.399 17.3787 177.33 15.2453 179.804 13.752C182.3 12.2373 185.223 11.48 188.572 11.48C192.05 11.48 195.004 12.28 197.436 13.88C199.89 15.48 201.724 17.7627 202.94 20.728C204.178 23.6933 204.711 27.224 204.541 31.32H198.78V29.272C198.716 25.0267 197.852 21.8587 196.188 19.768C194.524 17.656 192.05 16.6 188.764 16.6C185.244 16.6 182.567 17.7307 180.732 19.992C178.898 22.2533 177.98 25.496 177.98 29.72C177.98 33.7947 178.898 36.952 180.732 39.192C182.567 41.432 185.18 42.552 188.572 42.552C190.855 42.552 192.839 42.0293 194.524 40.984C196.21 39.9387 197.532 38.4347 198.492 36.472L203.965 38.36C202.62 41.4107 200.594 43.7787 197.884 45.464C195.196 47.128 192.178 47.96 188.828 47.96ZM176.06 31.32V26.744H201.597V31.32H176.06ZM209.073 47L209.105 12.44H214.865V29.08L229.361 12.44H236.753L221.489 29.72L238.545 47H230.577L214.865 30.36V47H209.073ZM248.322 47V17.624H236.29V12.44H266.05V17.624H254.018V47H248.322ZM273.723 62.36L280.411 44.184L280.507 49.56L265.403 12.44H271.387L283.227 42.296H281.179L292.283 12.44H298.075L279.259 62.36H273.723ZM316.672 47.96C313.429 47.96 310.699 47.16 308.48 45.56C306.261 43.9387 304.576 41.752 303.424 39C302.293 36.2267 301.728 33.1227 301.728 29.688C301.728 26.2107 302.293 23.096 303.424 20.344C304.576 17.592 306.261 15.4267 308.48 13.848C310.72 12.2693 313.461 11.48 316.704 11.48C319.904 11.48 322.656 12.28 324.96 13.88C327.285 15.4587 329.067 17.624 330.304 20.376C331.541 23.128 332.16 26.232 332.16 29.688C332.16 33.144 331.541 36.248 330.304 39C329.067 41.752 327.285 43.9387 324.96 45.56C322.656 47.16 319.893 47.96 316.672 47.96ZM300.768 62.36V12.44H305.856V37.88H306.496V62.36H300.768ZM315.968 42.744C318.251 42.744 320.139 42.168 321.632 41.016C323.125 39.864 324.245 38.3067 324.992 36.344C325.739 34.36 326.112 32.1413 326.112 29.688C326.112 27.256 325.739 25.0587 324.992 23.096C324.267 21.1333 323.136 19.576 321.6 18.424C320.085 17.272 318.155 16.696 315.808 16.696C313.568 16.696 311.712 17.2507 310.24 18.36C308.768 19.448 307.669 20.9733 306.944 22.936C306.219 24.8773 305.856 27.128 305.856 29.688C305.856 32.2053 306.208 34.456 306.912 36.44C307.637 38.4027 308.747 39.9493 310.24 41.08C311.733 42.1893 313.643 42.744 315.968 42.744ZM336.583 47V12.44H342.279V27H360.455V12.44H366.151V47H360.455V32.408H342.279V47H336.583ZM387.275 47.96C383.84 47.96 380.875 47.1813 378.379 45.624C375.904 44.0667 373.995 41.912 372.651 39.16C371.307 36.408 370.635 33.2507 370.635 29.688C370.635 26.0613 371.318 22.8827 372.683 20.152C374.048 17.4213 375.979 15.2987 378.475 13.784C380.971 12.248 383.904 11.48 387.275 11.48C390.731 11.48 393.707 12.2587 396.203 13.816C398.699 15.352 400.608 17.496 401.931 20.248C403.275 22.9787 403.947 26.1253 403.947 29.688C403.947 33.2933 403.275 36.472 401.931 39.224C400.587 41.9547 398.667 44.0987 396.171 45.656C393.675 47.192 390.71 47.96 387.275 47.96ZM387.275 42.552C390.859 42.552 393.526 41.3573 395.275 38.968C397.024 36.5787 397.899 33.4853 397.899 29.688C397.899 25.784 397.014 22.68 395.243 20.376C393.472 18.0507 390.816 16.888 387.275 16.888C384.864 16.888 382.88 17.432 381.323 18.52C379.766 19.608 378.603 21.112 377.835 23.032C377.067 24.952 376.683 27.1707 376.683 29.688C376.683 33.5707 377.579 36.6853 379.371 39.032C381.163 41.3787 383.798 42.552 387.275 42.552ZM423.409 47.96C420.017 47.96 417.051 47.2133 414.513 45.72C411.995 44.2053 410.033 42.104 408.625 39.416C407.217 36.7067 406.513 33.5493 406.513 29.944C406.513 26.168 407.206 22.904 408.593 20.152C409.979 17.3787 411.91 15.2453 414.385 13.752C416.881 12.2373 419.803 11.48 423.153 11.48C426.63 11.48 429.585 12.28 432.017 13.88C434.47 15.48 436.305 17.7627 437.521 20.728C438.758 23.6933 439.291 27.224 439.121 31.32H433.361V29.272C433.297 25.0267 432.433 21.8587 430.769 19.768C429.105 17.656 426.63 16.6 423.345 16.6C419.825 16.6 417.147 17.7307 415.313 19.992C413.478 22.2533 412.561 25.496 412.561 29.72C412.561 33.7947 413.478 36.952 415.313 39.192C417.147 41.432 419.761 42.552 423.153 42.552C425.435 42.552 427.419 42.0293 429.105 40.984C430.79 39.9387 432.113 38.4347 433.073 36.472L438.545 38.36C437.201 41.4107 435.174 43.7787 432.465 45.464C429.777 47.128 426.758 47.96 423.409 47.96ZM410.641 31.32V26.744H436.177V31.32H410.641Z"
+              fill="white"
+            />
+          </svg>
+          <svg
+            class="home-active home-active--word"
+            viewBox="0 0 346 63"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.843754 47V0.919998H18.7958C21.5478 0.919998 23.8944 1.48533 25.8358 2.616C27.7984 3.74666 29.2918 5.24 30.3158 7.096C31.3611 8.93067 31.8838 10.9147 31.8838 13.048C31.8838 15.544 31.2438 17.7307 29.9638 19.608C28.6838 21.4853 26.9558 22.776 24.7798 23.48L24.7158 21.912C27.6811 22.7013 29.9851 24.152 31.6278 26.264C33.2704 28.376 34.0918 30.8933 34.0918 33.816C34.0918 36.504 33.5371 38.8293 32.4278 40.792C31.3398 42.7547 29.7611 44.28 27.6918 45.368C25.6438 46.456 23.2118 47 20.3958 47H0.843754ZM6.60375 41.56H19.3078C21.0144 41.56 22.5398 41.2507 23.8838 40.632C25.2278 39.992 26.2838 39.096 27.0518 37.944C27.8411 36.792 28.2358 35.4053 28.2358 33.784C28.2358 32.2267 27.8838 30.8293 27.1798 29.592C26.4971 28.3547 25.5264 27.3733 24.2678 26.648C23.0304 25.9013 21.5904 25.528 19.9478 25.528H6.60375V41.56ZM6.60375 20.152H18.7318C20.0971 20.152 21.3238 19.864 22.4118 19.288C23.5211 18.6907 24.3958 17.8587 25.0358 16.792C25.6971 15.7253 26.0278 14.4773 26.0278 13.048C26.0278 11.064 25.3558 9.44267 24.0118 8.184C22.6678 6.92533 20.9078 6.296 18.7318 6.296H6.60375V20.152ZM37.8768 47V12.44H43.5728V27H61.7488V12.44H67.4448V47H61.7488V32.408H43.5728V47H37.8768ZM78.6488 62.36L85.3368 44.184L85.4328 49.56L70.3288 12.44H76.3128L88.1528 42.296H86.1048L97.2088 12.44H103.001L84.1848 62.36H78.6488ZM114.878 47V17.624H102.846V12.44H132.606V17.624H120.574V47H114.878ZM151.976 47.96C148.733 47.96 146.002 47.16 143.784 45.56C141.565 43.9387 139.88 41.752 138.728 39C137.597 36.2267 137.032 33.1227 137.032 29.688C137.032 26.2107 137.597 23.096 138.728 20.344C139.88 17.592 141.565 15.4267 143.784 13.848C146.024 12.2693 148.765 11.48 152.008 11.48C155.208 11.48 157.96 12.28 160.264 13.88C162.589 15.4587 164.37 17.624 165.608 20.376C166.845 23.128 167.464 26.232 167.464 29.688C167.464 33.144 166.845 36.248 165.608 39C164.37 41.752 162.589 43.9387 160.264 45.56C157.96 47.16 155.197 47.96 151.976 47.96ZM136.072 62.36V12.44H141.16V37.88H141.8V62.36H136.072ZM151.272 42.744C153.554 42.744 155.442 42.168 156.936 41.016C158.429 39.864 159.549 38.3067 160.296 36.344C161.042 34.36 161.416 32.1413 161.416 29.688C161.416 27.256 161.042 25.0587 160.296 23.096C159.57 21.1333 158.44 19.576 156.904 18.424C155.389 17.272 153.458 16.696 151.112 16.696C148.872 16.696 147.016 17.2507 145.544 18.36C144.072 19.448 142.973 20.9733 142.248 22.936C141.522 24.8773 141.16 27.128 141.16 29.688C141.16 32.2053 141.512 34.456 142.216 36.44C142.941 38.4027 144.05 39.9493 145.544 41.08C147.037 42.1893 148.946 42.744 151.272 42.744ZM186.895 47.96C183.503 47.96 180.537 47.2133 177.999 45.72C175.481 44.2053 173.519 42.104 172.111 39.416C170.703 36.7067 169.999 33.5493 169.999 29.944C169.999 26.168 170.692 22.904 172.079 20.152C173.465 17.3787 175.396 15.2453 177.871 13.752C180.367 12.2373 183.289 11.48 186.639 11.48C190.116 11.48 193.071 12.28 195.503 13.88C197.956 15.48 199.791 17.7627 201.007 20.728C202.244 23.6933 202.777 27.224 202.607 31.32H196.847V29.272C196.783 25.0267 195.919 21.8587 194.255 19.768C192.591 17.656 190.116 16.6 186.831 16.6C183.311 16.6 180.633 17.7307 178.799 19.992C176.964 22.2533 176.047 25.496 176.047 29.72C176.047 33.7947 176.964 36.952 178.799 39.192C180.633 41.432 183.247 42.552 186.639 42.552C188.921 42.552 190.905 42.0293 192.591 40.984C194.276 39.9387 195.599 38.4347 196.559 36.472L202.031 38.36C200.687 41.4107 198.66 43.7787 195.951 45.464C193.263 47.128 190.244 47.96 186.895 47.96ZM174.127 31.32V26.744H199.663V31.32H174.127ZM207.139 47V12.44H212.835V27H231.011V12.44H236.707V47H231.011V32.408H212.835V47H207.139ZM243.079 47V12.44H248.775V27H266.951V12.44H272.647V47H266.951V32.408H248.775V47H243.079ZM294.027 47.96C290.635 47.96 287.67 47.2133 285.131 45.72C282.614 44.2053 280.651 42.104 279.243 39.416C277.835 36.7067 277.131 33.5493 277.131 29.944C277.131 26.168 277.825 22.904 279.211 20.152C280.598 17.3787 282.529 15.2453 285.003 13.752C287.499 12.2373 290.422 11.48 293.771 11.48C297.249 11.48 300.203 12.28 302.635 13.88C305.089 15.48 306.923 17.7627 308.139 20.728C309.377 23.6933 309.91 27.224 309.739 31.32H303.979V29.272C303.915 25.0267 303.051 21.8587 301.387 19.768C299.723 17.656 297.249 16.6 293.963 16.6C290.443 16.6 287.766 17.7307 285.931 19.992C284.097 22.2533 283.179 25.496 283.179 29.72C283.179 33.7947 284.097 36.952 285.931 39.192C287.766 41.432 290.379 42.552 293.771 42.552C296.054 42.552 298.038 42.0293 299.723 40.984C301.409 39.9387 302.731 38.4347 303.691 36.472L309.163 38.36C307.819 41.4107 305.793 43.7787 303.083 45.464C300.395 47.128 297.377 47.96 294.027 47.96ZM281.259 31.32V26.744H306.795V31.32H281.259ZM329.28 47.96C325.888 47.96 322.922 47.2133 320.384 45.72C317.866 44.2053 315.904 42.104 314.496 39.416C313.088 36.7067 312.384 33.5493 312.384 29.944C312.384 26.168 313.077 22.904 314.464 20.152C315.85 17.3787 317.781 15.2453 320.256 13.752C322.752 12.2373 325.674 11.48 329.024 11.48C332.501 11.48 335.456 12.28 337.888 13.88C340.341 15.48 342.176 17.7627 343.392 20.728C344.629 23.6933 345.162 27.224 344.992 31.32H339.232V29.272C339.168 25.0267 338.304 21.8587 336.64 19.768C334.976 17.656 332.501 16.6 329.216 16.6C325.696 16.6 323.018 17.7307 321.184 19.992C319.349 22.2533 318.432 25.496 318.432 29.72C318.432 33.7947 319.349 36.952 321.184 39.192C323.018 41.432 325.632 42.552 329.024 42.552C331.306 42.552 333.29 42.0293 334.976 40.984C336.661 39.9387 337.984 38.4347 338.944 36.472L344.416 38.36C343.072 41.4107 341.045 43.7787 338.336 45.464C335.648 47.128 332.629 47.96 329.28 47.96ZM316.512 31.32V26.744H342.048V31.32H316.512Z"
+              fill="white"
+            />
+          </svg>
+          <svg
+            class="home-active home-active--word"
+            viewBox="0 0 410 62"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.736253 47V42.04C1.86692 42.1467 2.80559 42.0933 3.55225 41.88C4.29892 41.6667 4.90692 41.208 5.37625 40.504C5.86692 39.8 6.29359 38.776 6.65625 37.432C7.01892 36.0667 7.37092 34.296 7.71225 32.12C8.16025 29.56 8.53359 26.9787 8.83225 24.376C9.13092 21.752 9.38692 19.128 9.60025 16.504C9.83492 13.8587 10.0269 11.2347 10.1763 8.632C10.3256 6.008 10.4536 3.43733 10.5603 0.919998H40.2243V47H34.5283V6.328H15.9683C15.8403 8.26933 15.7016 10.3493 15.5523 12.568C15.4243 14.7653 15.2536 17.0587 15.0403 19.448C14.8269 21.8373 14.5709 24.3013 14.2723 26.84C13.9736 29.3787 13.6003 31.96 13.1523 34.584C12.7896 36.696 12.3523 38.6267 11.8403 40.376C11.3496 42.1253 10.6563 43.5867 9.76025 44.76C8.88559 45.9333 7.72292 46.7333 6.27225 47.16C4.84292 47.5867 2.99759 47.5333 0.736253 47ZM56.4503 47.96C53.8689 47.96 51.7036 47.4907 49.9543 46.552C48.2263 45.592 46.9143 44.3333 46.0183 42.776C45.1436 41.2187 44.7063 39.512 44.7063 37.656C44.7063 35.8427 45.0476 34.2747 45.7303 32.952C46.4343 31.608 47.4156 30.4987 48.6743 29.624C49.9329 28.728 51.4369 28.024 53.1863 27.512C54.8289 27.064 56.6636 26.68 58.6903 26.36C60.7383 26.0187 62.8076 25.7093 64.8983 25.432C66.9889 25.1547 68.9409 24.888 70.7543 24.632L68.7063 25.816C68.7703 22.744 68.1516 20.472 66.8503 19C65.5703 17.528 63.3516 16.792 60.1943 16.792C58.1036 16.792 56.2689 17.272 54.6903 18.232C53.1329 19.1707 52.0343 20.7067 51.3943 22.84L45.9863 21.208C46.8183 18.1787 48.4289 15.8 50.8183 14.072C53.2076 12.344 56.3543 11.48 60.2583 11.48C63.3943 11.48 66.0823 12.0453 68.3223 13.176C70.5836 14.2853 72.2049 15.9707 73.1863 18.232C73.6769 19.2987 73.9863 20.4613 74.1143 21.72C74.2423 22.9573 74.3063 24.2587 74.3063 25.624V47H69.2503V38.712L70.4343 39.48C69.1329 42.2747 67.3089 44.3867 64.9623 45.816C62.6369 47.2453 59.7996 47.96 56.4503 47.96ZM57.3143 43.192C59.3623 43.192 61.1329 42.8293 62.6263 42.104C64.1409 41.3573 65.3569 40.3867 66.2743 39.192C67.1916 37.976 67.7889 36.6533 68.0663 35.224C68.3863 34.1573 68.5569 32.9733 68.5783 31.672C68.6209 30.3493 68.6423 29.336 68.6423 28.632L70.6263 29.496C68.7703 29.752 66.9463 29.9973 65.1543 30.232C63.3623 30.4667 61.6663 30.7227 60.0663 31C58.4663 31.256 57.0263 31.5653 55.7463 31.928C54.8076 32.2267 53.9223 32.6107 53.0903 33.08C52.2796 33.5493 51.6183 34.1573 51.1063 34.904C50.6156 35.6293 50.3703 36.536 50.3703 37.624C50.3703 38.5627 50.6049 39.4587 51.0743 40.312C51.5649 41.1653 52.3116 41.8587 53.3143 42.392C54.3383 42.9253 55.6716 43.192 57.3143 43.192ZM80.0343 47V12.44H85.7303V27H103.906V12.44H109.602V47H103.906V32.408H85.7303V47H80.0343ZM113.446 54.68V42.296C115.388 42.296 116.774 41.6667 117.606 40.408C118.438 39.128 119.11 37.0267 119.622 34.104C119.964 32.2693 120.241 30.3067 120.454 28.216C120.668 26.1253 120.849 23.8 120.998 21.24C121.169 18.6587 121.329 15.7253 121.478 12.44H145.286V42.296H148.646V54.68H143.206V47H118.886V54.68H113.446ZM122.214 42.296H139.59V17.144H126.63C126.566 18.6587 126.481 20.248 126.374 21.912C126.268 23.5547 126.14 25.1973 125.99 26.84C125.862 28.4827 125.702 30.04 125.51 31.512C125.34 32.9627 125.137 34.264 124.902 35.416C124.625 37.016 124.305 38.3707 123.942 39.48C123.58 40.5893 123.004 41.528 122.214 42.296ZM152.477 47V12.44H157.981V41.816H169.885V12.44H175.389V41.816H187.261V12.44H192.765V47H152.477ZM208.96 47.96C206.379 47.96 204.214 47.4907 202.464 46.552C200.736 45.592 199.424 44.3333 198.528 42.776C197.654 41.2187 197.216 39.512 197.216 37.656C197.216 35.8427 197.558 34.2747 198.24 32.952C198.944 31.608 199.926 30.4987 201.184 29.624C202.443 28.728 203.947 28.024 205.696 27.512C207.339 27.064 209.174 26.68 211.2 26.36C213.248 26.0187 215.318 25.7093 217.408 25.432C219.499 25.1547 221.451 24.888 223.264 24.632L221.216 25.816C221.28 22.744 220.662 20.472 219.36 19C218.08 17.528 215.862 16.792 212.704 16.792C210.614 16.792 208.779 17.272 207.2 18.232C205.643 19.1707 204.544 20.7067 203.904 22.84L198.496 21.208C199.328 18.1787 200.939 15.8 203.328 14.072C205.718 12.344 208.864 11.48 212.768 11.48C215.904 11.48 218.592 12.0453 220.832 13.176C223.094 14.2853 224.715 15.9707 225.696 18.232C226.187 19.2987 226.496 20.4613 226.624 21.72C226.752 22.9573 226.816 24.2587 226.816 25.624V47H221.76V38.712L222.944 39.48C221.643 42.2747 219.819 44.3867 217.472 45.816C215.147 47.2453 212.31 47.96 208.96 47.96ZM209.824 43.192C211.872 43.192 213.643 42.8293 215.136 42.104C216.651 41.3573 217.867 40.3867 218.784 39.192C219.702 37.976 220.299 36.6533 220.576 35.224C220.896 34.1573 221.067 32.9733 221.088 31.672C221.131 30.3493 221.152 29.336 221.152 28.632L223.136 29.496C221.28 29.752 219.456 29.9973 217.664 30.232C215.872 30.4667 214.176 30.7227 212.576 31C210.976 31.256 209.536 31.5653 208.256 31.928C207.318 32.2267 206.432 32.6107 205.6 33.08C204.79 33.5493 204.128 34.1573 203.616 34.904C203.126 35.6293 202.88 36.536 202.88 37.624C202.88 38.5627 203.115 39.4587 203.584 40.312C204.075 41.1653 204.822 41.8587 205.824 42.392C206.848 42.9253 208.182 43.192 209.824 43.192ZM248.896 61.4V47.64C245.526 48.1733 242.454 47.8107 239.68 46.552C236.928 45.272 234.731 43.2133 233.088 40.376C231.467 37.5173 230.656 33.976 230.656 29.752C230.656 25.5067 231.467 21.9547 233.088 19.096C234.731 16.2373 236.928 14.1787 239.68 12.92C242.454 11.64 245.526 11.2667 248.896 11.8V1.272H254.08V11.8C257.451 11.2667 260.512 11.64 263.264 12.92C266.038 14.1787 268.235 16.2373 269.856 19.096C271.499 21.9547 272.32 25.5067 272.32 29.752C272.32 33.976 271.499 37.5173 269.856 40.376C268.235 43.2133 266.038 45.272 263.264 46.552C260.512 47.8107 257.451 48.1733 254.08 47.64V61.4H248.896ZM248.896 42.424V17.048C247.168 16.7493 245.558 16.8027 244.064 17.208C242.571 17.592 241.259 18.3173 240.128 19.384C238.998 20.4507 238.112 21.848 237.472 23.576C236.832 25.304 236.512 27.3627 236.512 29.752C236.512 32.12 236.832 34.168 237.472 35.896C238.134 37.624 239.03 39.0213 240.16 40.088C241.312 41.1333 242.635 41.8587 244.128 42.264C245.622 42.648 247.211 42.7013 248.896 42.424ZM254.08 42.424C255.766 42.7013 257.355 42.648 258.848 42.264C260.342 41.88 261.664 41.1653 262.816 40.12C263.968 39.0533 264.864 37.656 265.504 35.928C266.144 34.2 266.464 32.1413 266.464 29.752C266.464 27.3413 266.144 25.272 265.504 23.544C264.886 21.816 264.011 20.4187 262.88 19.352C261.75 18.2853 260.427 17.56 258.912 17.176C257.419 16.792 255.808 16.7493 254.08 17.048V42.424ZM285.168 47V17.624H273.136V12.44H302.896V17.624H290.864V47H285.168ZM306.362 47V12.44H312.058V27H330.234V12.44H335.93V47H330.234V32.408H312.058V47H306.362ZM357.054 47.96C353.619 47.96 350.654 47.1813 348.158 45.624C345.683 44.0667 343.774 41.912 342.43 39.16C341.086 36.408 340.414 33.2507 340.414 29.688C340.414 26.0613 341.096 22.8827 342.462 20.152C343.827 17.4213 345.758 15.2987 348.254 13.784C350.75 12.248 353.683 11.48 357.054 11.48C360.51 11.48 363.486 12.2587 365.982 13.816C368.478 15.352 370.387 17.496 371.71 20.248C373.054 22.9787 373.726 26.1253 373.726 29.688C373.726 33.2933 373.054 36.472 371.71 39.224C370.366 41.9547 368.446 44.0987 365.95 45.656C363.454 47.192 360.488 47.96 357.054 47.96ZM357.054 42.552C360.638 42.552 363.304 41.3573 365.054 38.968C366.803 36.5787 367.678 33.4853 367.678 29.688C367.678 25.784 366.792 22.68 365.022 20.376C363.251 18.0507 360.595 16.888 357.054 16.888C354.643 16.888 352.659 17.432 351.102 18.52C349.544 19.608 348.382 21.112 347.614 23.032C346.846 24.952 346.462 27.1707 346.462 29.688C346.462 33.5707 347.358 36.6853 349.15 39.032C350.942 41.3787 353.576 42.552 357.054 42.552ZM393.187 47.96C389.795 47.96 386.83 47.2133 384.291 45.72C381.774 44.2053 379.811 42.104 378.403 39.416C376.995 36.7067 376.291 33.5493 376.291 29.944C376.291 26.168 376.985 22.904 378.371 20.152C379.758 17.3787 381.689 15.2453 384.163 13.752C386.659 12.2373 389.582 11.48 392.931 11.48C396.409 11.48 399.363 12.28 401.795 13.88C404.249 15.48 406.083 17.7627 407.299 20.728C408.537 23.6933 409.07 27.224 408.899 31.32H403.139V29.272C403.075 25.0267 402.211 21.8587 400.547 19.768C398.883 17.656 396.409 16.6 393.123 16.6C389.603 16.6 386.926 17.7307 385.091 19.992C383.257 22.2533 382.339 25.496 382.339 29.72C382.339 33.7947 383.257 36.952 385.091 39.192C386.926 41.432 389.539 42.552 392.931 42.552C395.214 42.552 397.198 42.0293 398.883 40.984C400.569 39.9387 401.891 38.4347 402.851 36.472L408.323 38.36C406.979 41.4107 404.953 43.7787 402.243 45.464C399.555 47.128 396.537 47.96 393.187 47.96ZM380.419 31.32V26.744H405.955V31.32H380.419Z"
+              fill="white"
+            />
+          </svg>
+          <svg
+            class="home-active home-active--word"
+            viewBox="0 0 242 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.8288 47L16.3328 35.576L0.10875 0.919998H6.47675L19.3088 29.496L32.4288 0.919998H38.5088L17.0048 47H10.8288ZM32.9312 47V42.104C34.2112 42.3387 35.1819 42.296 35.8432 41.976C36.5259 41.6347 37.0272 41.048 37.3472 40.216C37.6886 39.3627 37.9659 38.296 38.1792 37.016C38.5419 34.9893 38.8512 32.728 39.1072 30.232C39.3846 27.736 39.6299 25.0053 39.8432 22.04C40.0779 19.0533 40.2912 15.8533 40.4832 12.44H64.6432V47H58.9473V17.848H45.6672C45.5392 19.8107 45.3792 21.8267 45.1872 23.896C45.0166 25.9653 44.8352 27.9813 44.6432 29.944C44.4512 31.8853 44.2379 33.6987 44.0032 35.384C43.7899 37.048 43.5552 38.488 43.2992 39.704C42.8939 41.7947 42.3286 43.4693 41.6032 44.728C40.8779 45.9653 39.8326 46.7653 38.4672 47.128C37.1019 47.512 35.2566 47.4693 32.9312 47ZM99.3592 12.44V47H93.8552V21.528L75.7432 47H71.0392V12.44H76.5432V37.56L94.6872 12.44H99.3592ZM126.561 47V34.552C125.409 35.128 124.012 35.6187 122.369 36.024C120.748 36.4293 119.009 36.632 117.153 36.632C113.633 36.632 110.796 35.8427 108.641 34.264C106.487 32.6853 105.079 30.4133 104.417 27.448C104.225 26.552 104.087 25.624 104.001 24.664C103.937 23.704 103.895 22.8293 103.873 22.04C103.852 21.2507 103.841 20.6747 103.841 20.312V12.44H109.601V20.312C109.601 20.9307 109.623 21.6987 109.665 22.616C109.708 23.512 109.815 24.3867 109.985 25.24C110.412 27.352 111.297 28.9413 112.641 30.008C114.007 31.0747 115.927 31.608 118.401 31.608C120.065 31.608 121.601 31.3947 123.009 30.968C124.417 30.5413 125.601 29.976 126.561 29.272V12.44H132.289V47H126.561ZM138.669 47V12.44H144.365V27H162.541V12.44H168.237V47H162.541V32.408H144.365V47H138.669ZM189.361 47.96C185.927 47.96 182.961 47.1813 180.465 45.624C177.991 44.0667 176.081 41.912 174.737 39.16C173.393 36.408 172.721 33.2507 172.721 29.688C172.721 26.0613 173.404 22.8827 174.769 20.152C176.135 17.4213 178.065 15.2987 180.561 13.784C183.057 12.248 185.991 11.48 189.361 11.48C192.817 11.48 195.793 12.2587 198.289 13.816C200.785 15.352 202.695 17.496 204.017 20.248C205.361 22.9787 206.033 26.1253 206.033 29.688C206.033 33.2933 205.361 36.472 204.017 39.224C202.673 41.9547 200.753 44.0987 198.257 45.656C195.761 47.192 192.796 47.96 189.361 47.96ZM189.361 42.552C192.945 42.552 195.612 41.3573 197.361 38.968C199.111 36.5787 199.985 33.4853 199.985 29.688C199.985 25.784 199.1 22.68 197.329 20.376C195.559 18.0507 192.903 16.888 189.361 16.888C186.951 16.888 184.967 17.432 183.409 18.52C181.852 19.608 180.689 21.112 179.921 23.032C179.153 24.952 178.769 27.1707 178.769 29.688C178.769 33.5707 179.665 36.6853 181.457 39.032C183.249 41.3787 185.884 42.552 189.361 42.552ZM225.495 47.96C222.103 47.96 219.137 47.2133 216.599 45.72C214.081 44.2053 212.119 42.104 210.711 39.416C209.303 36.7067 208.599 33.5493 208.599 29.944C208.599 26.168 209.292 22.904 210.679 20.152C212.065 17.3787 213.996 15.2453 216.471 13.752C218.967 12.2373 221.889 11.48 225.239 11.48C228.716 11.48 231.671 12.28 234.103 13.88C236.556 15.48 238.391 17.7627 239.607 20.728C240.844 23.6933 241.377 27.224 241.207 31.32H235.447V29.272C235.383 25.0267 234.519 21.8587 232.855 19.768C231.191 17.656 228.716 16.6 225.431 16.6C221.911 16.6 219.233 17.7307 217.399 19.992C215.564 22.2533 214.647 25.496 214.647 29.72C214.647 33.7947 215.564 36.952 217.399 39.192C219.233 41.432 221.847 42.552 225.239 42.552C227.521 42.552 229.505 42.0293 231.191 40.984C232.876 39.9387 234.199 38.4347 235.159 36.472L240.631 38.36C239.287 41.4107 237.26 43.7787 234.551 45.464C231.863 47.128 228.844 47.96 225.495 47.96ZM212.727 31.32V26.744H238.263V31.32H212.727Z"
+              fill="white"
+            />
+          </svg>
+          <svg
+            class="home-active home-active--word"
+            viewBox="0 0 187 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.537503 47V0.919998H5.7215L23.1295 37.624L40.4415 0.919998H45.6895V46.968H40.2815V13.432L24.6335 47H21.5935L5.9455 13.432V47H0.537503ZM66.8225 47.96C63.3878 47.96 60.4225 47.1813 57.9265 45.624C55.4518 44.0667 53.5425 41.912 52.1985 39.16C50.8545 36.408 50.1825 33.2507 50.1825 29.688C50.1825 26.0613 50.8652 22.8827 52.2305 20.152C53.5958 17.4213 55.5265 15.2987 58.0225 13.784C60.5185 12.248 63.4518 11.48 66.8225 11.48C70.2785 11.48 73.2545 12.2587 75.7505 13.816C78.2465 15.352 80.1558 17.496 81.4785 20.248C82.8225 22.9787 83.4945 26.1253 83.4945 29.688C83.4945 33.2933 82.8225 36.472 81.4785 39.224C80.1345 41.9547 78.2145 44.0987 75.7185 45.656C73.2225 47.192 70.2572 47.96 66.8225 47.96ZM66.8225 42.552C70.4065 42.552 73.0732 41.3573 74.8225 38.968C76.5718 36.5787 77.4465 33.4853 77.4465 29.688C77.4465 25.784 76.5612 22.68 74.7905 20.376C73.0198 18.0507 70.3638 16.888 66.8225 16.888C64.4118 16.888 62.4278 17.432 60.8705 18.52C59.3132 19.608 58.1505 21.112 57.3825 23.032C56.6145 24.952 56.2305 27.1707 56.2305 29.688C56.2305 33.5707 57.1265 36.6853 58.9185 39.032C60.7105 41.3787 63.3452 42.552 66.8225 42.552ZM102.54 47.96C99.0413 47.96 96.0653 47.1813 93.612 45.624C91.18 44.0453 89.324 41.88 88.044 39.128C86.764 36.376 86.1027 33.24 86.06 29.72C86.1027 26.1147 86.7747 22.9467 88.076 20.216C89.3987 17.464 91.2867 15.32 93.74 13.784C96.1933 12.248 99.148 11.48 102.604 11.48C106.252 11.48 109.388 12.376 112.012 14.168C114.657 15.96 116.428 18.4133 117.324 21.528L111.692 23.224C110.967 21.2187 109.783 19.6613 108.14 18.552C106.519 17.4427 104.652 16.888 102.54 16.888C100.172 16.888 98.22 17.4427 96.684 18.552C95.148 19.64 94.0067 21.1547 93.26 23.096C92.5133 25.016 92.1293 27.224 92.108 29.72C92.1507 33.56 93.036 36.664 94.764 39.032C96.5133 41.3787 99.1053 42.552 102.54 42.552C104.801 42.552 106.679 42.04 108.172 41.016C109.665 39.9707 110.796 38.4667 111.564 36.504L117.324 38.008C116.129 41.2293 114.263 43.6933 111.724 45.4C109.185 47.1067 106.124 47.96 102.54 47.96ZM129.822 47V17.624H117.79V12.44H147.55V17.624H135.518V47H129.822ZM151.048 47L151.016 12.44H156.744V24.952H162.024C163.026 24.952 164.05 24.9733 165.096 25.016C166.141 25.0587 167.048 25.1547 167.816 25.304C169.608 25.6667 171.176 26.2747 172.52 27.128C173.864 27.9813 174.909 29.1333 175.656 30.584C176.402 32.0347 176.776 33.8373 176.776 35.992C176.776 38.9787 175.997 41.3467 174.44 43.096C172.904 44.824 170.888 45.976 168.392 46.552C167.538 46.744 166.557 46.872 165.448 46.936C164.36 46.9787 163.325 47 162.344 47H151.048ZM156.744 42.296H162.44C163.08 42.296 163.794 42.2747 164.584 42.232C165.373 42.1893 166.077 42.0827 166.696 41.912C167.784 41.592 168.754 40.9627 169.608 40.024C170.482 39.0853 170.92 37.7413 170.92 35.992C170.92 34.2213 170.493 32.856 169.64 31.896C168.808 30.936 167.709 30.3067 166.344 30.008C165.725 29.8587 165.074 29.7627 164.392 29.72C163.709 29.6773 163.058 29.656 162.44 29.656H156.744V42.296ZM180.744 47V12.44H186.44V47H180.744Z"
+              fill="white"
+            />
+          </svg>
+          <svg
+            class="home-active home-active--word"
+            viewBox="0 0 354 64"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21.9128 48.96C17.3261 48.96 13.4328 47.9467 10.2328 45.92C7.03275 43.8933 4.59009 41.0773 2.90475 37.472C1.24075 33.8667 0.408754 29.696 0.408754 24.96C0.408754 20.224 1.24075 16.0533 2.90475 12.448C4.59009 8.84266 7.03275 6.02666 10.2328 4C13.4328 1.97333 17.3261 0.959999 21.9128 0.959999C27.2461 0.959999 31.6301 2.31467 35.0648 5.024C38.5208 7.73333 40.8994 11.3813 42.2008 15.968L36.4088 17.504C35.4701 14.0693 33.7954 11.36 31.3848 9.376C28.9741 7.392 25.8168 6.4 21.9128 6.4C18.4781 6.4 15.6194 7.17866 13.3368 8.736C11.0541 10.2933 9.33675 12.4693 8.18475 15.264C7.03275 18.0373 6.44609 21.2693 6.42475 24.96C6.40342 28.6293 6.96875 31.8613 8.12076 34.656C9.27275 37.4293 11.0008 39.6053 13.3048 41.184C15.6088 42.7413 18.4781 43.52 21.9128 43.52C25.8168 43.52 28.9741 42.528 31.3848 40.544C33.7954 38.5387 35.4701 35.8293 36.4088 32.416L42.2008 33.952C40.8994 38.5173 38.5208 42.1653 35.0648 44.896C31.6301 47.6053 27.2461 48.96 21.9128 48.96ZM46.6268 48V13.44H74.9468V48H69.2508V18.848H52.3228V48H46.6268ZM96.0688 48.96C92.6341 48.96 89.6688 48.1813 87.1728 46.624C84.6981 45.0667 82.7888 42.912 81.4448 40.16C80.1008 37.408 79.4288 34.2507 79.4288 30.688C79.4288 27.0613 80.1114 23.8827 81.4768 21.152C82.8421 18.4213 84.7728 16.2987 87.2688 14.784C89.7648 13.248 92.6981 12.48 96.0688 12.48C99.5248 12.48 102.501 13.2587 104.997 14.816C107.493 16.352 109.402 18.496 110.725 21.248C112.069 23.9787 112.741 27.1253 112.741 30.688C112.741 34.2933 112.069 37.472 110.725 40.224C109.381 42.9547 107.461 45.0987 104.965 46.656C102.469 48.192 99.5034 48.96 96.0688 48.96ZM96.0688 43.552C99.6528 43.552 102.319 42.3573 104.069 39.968C105.818 37.5787 106.693 34.4853 106.693 30.688C106.693 26.784 105.807 23.68 104.037 21.376C102.266 19.0507 99.6101 17.888 96.0688 17.888C93.6581 17.888 91.6741 18.432 90.1168 19.52C88.5594 20.608 87.3968 22.112 86.6288 24.032C85.8608 25.952 85.4768 28.1707 85.4768 30.688C85.4768 34.5707 86.3728 37.6853 88.1648 40.032C89.9568 42.3787 92.5914 43.552 96.0688 43.552ZM133.098 48.96C129.856 48.96 127.125 48.16 124.906 46.56C122.688 44.9387 121.002 42.752 119.85 40C118.72 37.2267 118.154 34.1227 118.154 30.688C118.154 27.2107 118.72 24.096 119.85 21.344C121.002 18.592 122.688 16.4267 124.906 14.848C127.146 13.2693 129.888 12.48 133.13 12.48C136.33 12.48 139.082 13.28 141.386 14.88C143.712 16.4587 145.493 18.624 146.73 21.376C147.968 24.128 148.586 27.232 148.586 30.688C148.586 34.144 147.968 37.248 146.73 40C145.493 42.752 143.712 44.9387 141.386 46.56C139.082 48.16 136.32 48.96 133.098 48.96ZM117.194 63.36V13.44H122.282V38.88H122.922V63.36H117.194ZM132.394 43.744C134.677 43.744 136.565 43.168 138.058 42.016C139.552 40.864 140.672 39.3067 141.418 37.344C142.165 35.36 142.538 33.1413 142.538 30.688C142.538 28.256 142.165 26.0587 141.418 24.096C140.693 22.1333 139.562 20.576 138.026 19.424C136.512 18.272 134.581 17.696 132.234 17.696C129.994 17.696 128.138 18.2507 126.666 19.36C125.194 20.448 124.096 21.9733 123.37 23.936C122.645 25.8773 122.282 28.128 122.282 30.688C122.282 33.2053 122.634 35.456 123.338 37.44C124.064 39.4027 125.173 40.9493 126.666 42.08C128.16 43.1893 130.069 43.744 132.394 43.744ZM162.193 48V18.624H150.161V13.44H179.921V18.624H167.889V48H162.193ZM211.707 13.44V48H206.203V22.528L188.091 48H183.387V13.44H188.891V38.56L207.035 13.44H211.707ZM218.077 48V13.44H232.797C233.671 13.44 234.61 13.4933 235.613 13.6C236.637 13.6853 237.565 13.8453 238.397 14.08C240.253 14.5707 241.778 15.584 242.973 17.12C244.189 18.6347 244.797 20.5547 244.797 22.88C244.797 24.1813 244.594 25.312 244.189 26.272C243.805 27.232 243.25 28.064 242.525 28.768C242.205 29.088 241.853 29.376 241.469 29.632C241.085 29.888 240.701 30.0907 240.317 30.24C241.063 30.368 241.821 30.656 242.589 31.104C243.805 31.7653 244.754 32.6933 245.437 33.888C246.141 35.0827 246.493 36.608 246.493 38.464C246.493 40.8107 245.927 42.752 244.797 44.288C243.666 45.8027 242.109 46.848 240.125 47.424C239.293 47.6587 238.375 47.8187 237.373 47.904C236.37 47.968 235.399 48 234.461 48H218.077ZM223.837 43.36H234.141C234.589 43.36 235.122 43.3173 235.741 43.232C236.381 43.1467 236.946 43.04 237.437 42.912C238.546 42.592 239.346 41.9947 239.837 41.12C240.349 40.2453 240.605 39.296 240.605 38.272C240.605 36.9067 240.221 35.7973 239.453 34.944C238.706 34.0907 237.714 33.5573 236.477 33.344C236.029 33.216 235.538 33.1413 235.005 33.12C234.493 33.0987 234.034 33.088 233.629 33.088H223.837V43.36ZM223.837 28.384H232.413C233.01 28.384 233.639 28.352 234.301 28.288C234.962 28.2027 235.538 28.064 236.029 27.872C237.01 27.5093 237.725 26.912 238.173 26.08C238.642 25.2267 238.877 24.2987 238.877 23.296C238.877 22.1867 238.621 21.216 238.109 20.384C237.618 19.5307 236.861 18.944 235.837 18.624C235.154 18.368 234.386 18.2293 233.533 18.208C232.701 18.1653 232.167 18.144 231.933 18.144H223.837V28.384ZM250.329 48V13.44H256.025V28H274.201V13.44H279.897V48H274.201V33.408H256.025V48H250.329ZM301.021 48.96C297.587 48.96 294.621 48.1813 292.125 46.624C289.651 45.0667 287.741 42.912 286.397 40.16C285.053 37.408 284.381 34.2507 284.381 30.688C284.381 27.0613 285.064 23.8827 286.429 21.152C287.795 18.4213 289.725 16.2987 292.221 14.784C294.717 13.248 297.651 12.48 301.021 12.48C304.477 12.48 307.453 13.2587 309.949 14.816C312.445 16.352 314.355 18.496 315.677 21.248C317.021 23.9787 317.693 27.1253 317.693 30.688C317.693 34.2933 317.021 37.472 315.677 40.224C314.333 42.9547 312.413 45.0987 309.917 46.656C307.421 48.192 304.456 48.96 301.021 48.96ZM301.021 43.552C304.605 43.552 307.272 42.3573 309.021 39.968C310.771 37.5787 311.645 34.4853 311.645 30.688C311.645 26.784 310.76 23.68 308.989 21.376C307.219 19.0507 304.563 17.888 301.021 17.888C298.611 17.888 296.627 18.432 295.069 19.52C293.512 20.608 292.349 22.112 291.581 24.032C290.813 25.952 290.429 28.1707 290.429 30.688C290.429 34.5707 291.325 37.6853 293.117 40.032C294.909 42.3787 297.544 43.552 301.021 43.552ZM337.155 48.96C333.763 48.96 330.797 48.2133 328.259 46.72C325.741 45.2053 323.779 43.104 322.371 40.416C320.963 37.7067 320.259 34.5493 320.259 30.944C320.259 27.168 320.952 23.904 322.339 21.152C323.725 18.3787 325.656 16.2453 328.131 14.752C330.627 13.2373 333.549 12.48 336.899 12.48C340.376 12.48 343.331 13.28 345.763 14.88C348.216 16.48 350.051 18.7627 351.267 21.728C352.504 24.6933 353.037 28.224 352.867 32.32H347.107V30.272C347.043 26.0267 346.179 22.8587 344.515 20.768C342.851 18.656 340.376 17.6 337.091 17.6C333.571 17.6 330.893 18.7307 329.059 20.992C327.224 23.2533 326.307 26.496 326.307 30.72C326.307 34.7947 327.224 37.952 329.059 40.192C330.893 42.432 333.507 43.552 336.899 43.552C339.181 43.552 341.165 43.0293 342.851 41.984C344.536 40.9387 345.859 39.4347 346.819 37.472L352.291 39.36C350.947 42.4107 348.92 44.7787 346.211 46.464C343.523 48.128 340.504 48.96 337.155 48.96ZM324.387 32.32V27.744H349.923V32.32H324.387Z"
+              fill="white"
+            />
+          </svg>
+
+          <svg
+            class="home-active home-active-last home-active--logo"
+            viewBox="0 0 210 146"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_2224_13149)">
+              <path
+                d="M9.25729 117.875C9.80956 120.52 11.0962 122.55 13.1172 123.965C15.1451 125.377 17.6155 126.104 20.5401 126.104C24.596 126.104 27.6216 124.645 29.6495 121.791L35.956 125.415C32.4524 130.452 27.289 133.002 20.4659 133.002C14.7116 133.002 10.0738 131.251 6.52566 127.819C2.97751 124.388 1.2168 119.979 1.2168 114.682C1.2168 109.5 2.95079 105.149 6.4544 101.633C9.95801 98.1164 14.4207 96.3801 19.878 96.3801C25.08 96.3801 29.3199 98.1572 32.6454 101.746C35.9708 105.336 37.6247 109.649 37.6247 114.758C37.5973 115.802 37.4981 116.844 37.3278 117.875H9.25729ZM9.18306 111.747H29.988C29.4714 108.919 28.2896 106.786 26.425 105.368C24.5636 103.936 22.256 103.18 19.8928 103.229C17.0543 103.229 14.6938 103.99 12.8114 105.514C10.9171 107.002 9.6997 109.103 9.18306 111.764V111.747Z"
+                fill="white"
+              />
+              <path
+                d="M74.2303 132.043H65.3911L56.6499 120.155L47.8048 132.043H38.8735L52.1873 114.172L39.6129 97.2827H48.4639L56.6143 108.258L64.7646 97.2739H73.6157L61.0383 114.237L74.2303 132.043Z"
+                fill="white"
+              />
+              <path
+                d="M99.4313 96.3801C104.301 96.3801 108.431 98.1572 111.902 101.709C115.373 105.26 117.065 109.587 117.065 114.685C117.065 119.783 115.334 124.184 111.902 127.697C108.469 131.21 104.307 132.99 99.4313 132.99C94.0452 132.99 89.9151 131.032 87.038 127.154V146.002H79.4043V97.2877H87.038V102.289C89.9656 98.3411 94.0452 96.3801 99.4313 96.3801ZM90.2625 122.622C92.4033 124.726 95.0577 125.777 98.2793 125.777C101.501 125.777 104.143 124.726 106.281 122.622C108.419 120.518 109.452 117.875 109.452 114.65C109.452 111.426 108.383 108.814 106.281 106.675C104.179 104.536 101.486 103.521 98.2793 103.521C95.0726 103.521 92.4152 104.574 90.2625 106.675C88.1099 108.776 87.0915 111.423 87.0915 114.65C87.0915 117.878 88.1099 120.518 90.2625 122.622Z"
+                fill="white"
+              />
+              <path
+                d="M130.008 117.872C130.565 120.517 131.851 122.547 133.868 123.962C135.896 125.374 138.366 126.1 141.291 126.1C145.35 126.1 148.373 124.641 150.401 121.788L156.707 125.412C153.203 130.448 148.04 132.999 141.217 132.999C135.466 132.999 130.825 131.248 127.277 127.816C123.729 124.385 121.965 119.987 121.965 114.685C121.965 109.502 123.699 105.152 127.202 101.635C130.706 98.1191 135.169 96.3828 140.629 96.3828C145.828 96.3828 150.071 98.1599 153.396 101.749C156.722 105.338 158.376 109.651 158.376 114.761C158.347 115.805 158.248 116.846 158.079 117.877L130.008 117.872ZM129.934 111.744H150.736C150.219 108.916 149.041 106.783 147.158 105.365C145.297 103.932 142.989 103.176 140.626 103.226C137.784 103.226 135.423 103.987 133.545 105.511C131.668 106.999 130.451 109.1 129.934 111.761V111.744Z"
+                fill="white"
+              />
+              <path
+                d="M172.787 103.12C174.705 98.8069 178.357 96.668 183.666 96.668V104.786C180.752 104.605 178.208 105.294 176.032 106.852C173.856 108.41 172.787 110.937 172.787 114.538V132.047H165.153V97.2837H172.787V103.12Z"
+                fill="white"
+              />
+              <path
+                d="M210 104.498H201.223V121.172C201.223 122.631 201.555 123.635 202.218 124.251C202.88 124.866 203.842 125.231 205.169 125.304C206.779 125.379 208.391 125.366 210 125.266V132.01C204.136 132.698 199.97 132.191 197.425 130.522C194.881 128.852 193.589 125.701 193.589 121.172V104.498H187.099V97.2847H193.589V89.7823L201.223 87.5704V97.3197H210V104.498Z"
+                fill="white"
+              />
+              <path
+                d="M13.6077 53.6979C13.6077 54.3516 14.2015 54.8943 15.4159 55.2941C16.854 55.775 18.3193 56.1735 19.8043 56.4876C21.5641 56.8752 23.2905 57.3972 24.9677 58.0488C26.7351 58.7611 28.258 59.956 29.3561 61.4921C30.5735 63.1233 31.1643 65.1514 31.1643 67.6201C31.1643 71.6062 29.653 74.5417 26.6275 76.4648C23.6019 78.3878 20.027 79.3274 15.8583 79.3274C7.94053 79.3274 2.65443 76.5727 0 71.0634L10.2525 65.9889C11.1373 68.5179 12.9812 69.7824 15.7841 69.7824C17.9248 69.7824 18.9581 69.1667 18.9581 67.8973C18.9581 67.2466 18.3643 66.7009 17.1766 66.304C15.9889 65.9072 14.5578 65.4695 12.8624 65.0347C11.1293 64.5941 9.42894 64.0374 7.77327 63.3684C6.04683 62.6555 4.55401 61.4882 3.45907 59.9951C2.27141 58.4369 1.67758 56.5168 1.67758 54.2699C1.67758 50.5727 3.07902 47.6721 5.83441 45.6411C8.58979 43.6102 11.9865 42.6093 15.8969 42.6093C22.8655 42.6093 27.735 45.291 30.4636 50.6573L20.5436 55.0344C19.5104 53.0385 18.0347 52.0609 16.1552 52.0609C14.4569 52.022 13.6077 52.5677 13.6077 53.6979Z"
+                fill="white"
+              />
+              <path
+                d="M98.2518 65.1386C99.4395 67.9662 102.085 69.3786 106.179 69.3786C108.573 69.4398 110.894 68.5669 112.634 66.9507L121.117 72.7869C117.614 77.0998 112.548 79.2504 105.921 79.2387C99.9472 79.2387 95.152 77.4879 91.5385 74.0562C87.9251 70.6246 86.105 66.227 86.105 60.9337C86.105 55.7161 87.8756 51.3303 91.4168 47.7761C94.9561 44.2598 99.4543 42.4856 104.915 42.4856C110.188 42.4856 114.541 44.2364 118.006 47.706C121.471 51.1756 123.169 55.5352 123.169 60.7907C123.184 62.2419 123.024 63.6897 122.691 65.1036H98.2518V65.1386ZM98.1034 57.1285H111.675C110.716 53.8661 108.504 52.2728 105.036 52.2728C101.423 52.2728 99.098 53.904 98.1034 57.1285Z"
+                fill="white"
+              />
+              <path
+                d="M149.184 54.591H141.847V64.6671C141.847 66.1874 142.399 67.13 143.543 67.5297C144.686 67.9295 146.565 67.9995 149.184 67.8916V78.2945C142.141 79.1291 137.236 78.4754 134.359 76.3744C131.482 74.2734 130.08 70.4653 130.08 64.921V54.5531H124.769V43.4994H130.08V37.2285L141.809 33.7472V43.4994H149.148V54.5881L149.184 54.591Z"
+                fill="white"
+              />
+              <path
+                d="M68.9353 78.6188H47.1L21.9097 0H43.7449L68.9353 78.6188Z"
+                fill="#ACACAC"
+              />
+              <path
+                d="M47.5015 78.6178H69.3337L89.5448 18.593H67.7482L47.5015 78.6178Z"
+                fill="#828282"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_2224_13149">
+                <rect width="210" height="146" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <div class="rounded-div-wrap bottom">
+          <div class="rounded-div"></div>
+        </div>
+      </div>
+    </div>
+    <div class="page">
+      <header class="header header__animation-button py-15">
+        <div
+          class="header__wrapper container grid-cols-12 content-center gap-x-16 sm:gap-x-36 items-center flex justify-end sm:justify-between sm:text-9 sm:grid"
+        >
+          <a
+            href="/"
+            class="logo block col-span-2 w-fit 2md:col-span-4 mr-auto sm:mr-0"
+          >
+            <img
+              class="w-48 h-32 sm:w-74 sm:h-52"
+              src="./src/img/logo.png"
+              alt=""
+            />
+          </a>
+          <div
+            class="hidden 2md:col-span-2 nav__item header__open-button services-button sm:block"
+            id="servicesButton"
+            data-modal-target="services"
+          >
+            <a href="#" class="flex items-center text-8"
+              >Услуги
+              <svg
+                class="w-16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.0998 5.33529H11.9998C12.2998 5.33529 12.4998 5.53529 12.4998 5.83529C12.4998 5.93529 12.4998 6.03529 12.3998 6.13529L8.4998 10.8353C8.2998 11.0353 7.9998 11.0353 7.7998 10.9353L7.6998 10.8353L3.6998 6.13529C3.4998 5.93529 3.4998 5.63529 3.6998 5.43529C3.7998 5.33529 3.9998 5.33529 4.0998 5.33529Z"
+                  fill="white"
+                />
+              </svg>
+            </a>
+          </div>
+          <a
+            href="#"
+            class="button button--primary w-fit justify-end sm:hidden"
+            id="connectButtonMobile"
+            data-modal-target="connect"
+            data-modal-close="headerOpenButton"
+          >
+            <span>Связаться</span>
+          </a>
+          <nav class="nav col-span-7 sm:text-black-10 block 2md:col-span-5">
+            <ul class="flex gap-x-32 items-center">
+              <li class="nav__item hidden sm:block">
+                <a href="#"><span>Проекты</span></a>
+              </li>
+              <li class="nav__item hidden sm:block">
+                <a href="#"> <span>О нас</span></a>
+              </li>
+              <li class="nav__item hidden sm:block">
+                <a href="#"><span>Пресс-центр</span></a>
+              </li>
+              <li class="nav__item hidden sm:block">
+                <a href="/career/"><span>Карьера </span></a>
+              </li>
+              <li class="nav__item hidden sm:block">
+                <a href="/contacts/"> <span>Контакты</span></a>
+              </li>
+              <li class="nav__item search-button__container">
+                <div class="flex justify-end relative search-button__wrapper">
+                  <a
+                    class="w-[24px] h-[24px] stroke-white-100 right-0 search-toggler"
+                    href="#"
+                    id="searchButton"
+                    data-modal-target="search"
+                    data-modal-close="headerOpenButton"
+                    data-modal-after="true"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 19L16.9497 16.9497M16.9497 16.9497C18.2165 15.683 19 13.933 19 12C19 8.13401 15.866 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C13.933 19 15.683 18.2165 16.9497 16.9497Z"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </a>
+                  <input type="text" class="search-input" />
+                </div>
+              </li>
+            </ul>
+          </nav>
+
+          <a
+            href="#"
+            class="button button-link hidden justify-end sm:flex col-start-12"
+            id="connectButton"
+            data-modal-target="connect"
+            data-modal-close="headerOpenButton"
+          >
+            <span class="hovered-line-anim">Связаться</span>
+          </a>
+          <a
+            href="#"
+            class="menu__button header__open-button header__close-button sm:hidden"
+            id="headerOpenButton"
+            data-modal-target="siteMenu"
+          >
+            <div class="NavIcon cursor-stick-area">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </a>
+        </div>
+      </header>
+      <div data-scroll-container>
+        <!-- START PAGE -->
+        <section
+          data-scroll-section
+          class="container page-container project-single"
+        >
+          <div
+            class="page__heading text-4 pt-50 pb-40 sm:text-0.4 sm:pt-100 sm:pb-70"
+          >
+            <h1>
+              Архитектурная подсветка загородного дома-светотехнический расчет
+            </h1>
+          </div>
+          <div class="project-single__banner">
+            <picture>
+              <source
+                srcset="
+                  https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp
+                "
+                type="image/webp"
+              />
+              <img
+                src="https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp"
+                class="aspect-[320/400] object-cover w-full sm:aspect-[1440/790]"
+                alt=""
+              />
+            </picture>
+          </div>
+          <div
+            class="project-single__contant pt-30 sm:pt-100 sm:pb-100 flex flex-col gap-y-50 sm:grid grid-cols-12 gap-x-36"
+          >
+            <ul
+              class="project-single__contant__left col-span-6 flex flex-col gap-y-20 gap-x-85 sm:flex-row"
+            >
+              <li class="flex gap-10 sm:gap-12 flex-col sm:mr-10">
+                <p class="text-18 sm:text-10 text-black-40">Город</p>
+                <p class="text-16 sm:text-8">Нижний Новгород</p>
+              </li>
+              <li class="flex gap-10 sm:gap-12 flex-col">
+                <p class="text-18 sm:text-10 text-black-40">Год</p>
+                <p class="text-16 sm:text-8">2021</p>
+              </li>
+              <li class="flex gap-10 sm:gap-12 flex-col sm:max-w-[226px]">
+                <p class="text-18 sm:text-10 text-black-40">Заказчик</p>
+                <p class="text-16 sm:text-8">
+                  Администрация города Нижний Новгород
+                </p>
+              </li>
+            </ul>
+            <div class="col-span-6 project-single__text">
+              <h4>Как создается эффект</h4>
+              <p>
+                Мы вынуждены отталкиваться от того, что курс на социально
+                -ориентированный национальный проект, в своём классическом
+                представлении, допускает внедрение новых предложений! Банальные,
+                но неопровержимые выводы, а также реплицированные с зарубежных
+                источников, современные исследования являются только методом
+                политического участия и преданы.
+              </p>
+              <div class="buttons flex gap-x-16 sm:gap-x-24">
+                <!-- <a
+                              href="#"
+                              class="button button--primary flex w-fit items-center gap-x-4"
+                              id="pdfOpener"
+                              data-modal-target="pdfSlider"
+                            >
+                              <span>Смотреть</span>
+                              <svg
+                                class="w-16 sm:w-20 h-auto"
+                                viewBox="0 0 20 21"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M17.0783 9.786C17.366 10.2247 17.366 10.7753 17.0783 11.214C16.1719 12.5955 13.8134 15.5 10.0025 15.5C6.19169 15.5 3.83311 12.5955 2.92676 11.214C2.639 10.7753 2.639 10.2247 2.92676 9.786C3.83311 8.40446 6.19169 5.5 10.0025 5.5C13.8134 5.5 16.1719 8.40446 17.0783 9.786Z"
+                                  stroke="white"
+                                  stroke-width="1.25"
+                                  stroke-linecap="round"
+                                />
+                                <path
+                                  d="M12.5 10.5C12.5 11.8807 11.3807 13 10 13C8.61927 13 7.5 11.8807 7.5 10.5C7.5 9.11925 8.61927 8 10 8C11.3807 8 12.5 9.11925 12.5 10.5Z"
+                                  stroke="white"
+                                  stroke-width="1.25"
+                                  stroke-linecap="round"
+                                />
+                              </svg>
+                            </a>
+                            <a
+                              href="#"
+                              class="button button--secondary flex w-fit items-center gap-x-4"
+                            >
+                              <span>Скачать</span>
+                              <svg
+                                class="w-16 sm:w-20 h-auto"
+                                viewBox="0 0 20 21"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M10.0026 4.25V13.8333M10.0026 13.8333L6.66927 10.5M10.0026 13.8333L13.3359 10.5M4.58594 16.75H15.4193"
+                                  stroke="white"
+                                  stroke-width="1.25"
+                                  stroke-linecap="round"
+                                />
+                              </svg>
+                            </a> -->
+              </div>
+            </div>
+          </div>
+          <div
+            class="pt-50 pb-50 sm:pt-0 sm:pb-100 project-single__images flex flex-col gap-y-20 sm:gap-y-0 sm:block uc-images"
+          >
+            <figure>
+              <img src="./src/img/mainvideo.jpg" alt="" />
+            </figure>
+            <figure>
+              <img src="./src/img/mainvideo.jpg" alt="" />
+            </figure>
+            <figure>
+              <img src="./src/img/mainvideo.jpg" alt="" />
+            </figure>
+            <figure>
+              <img src="./src/img/mainvideo.jpg" alt="" />
+            </figure>
+          </div>
+        </section>
+        <section data-scroll-section class="another-projects container">
+          <div class="pt-50 pb-40 sm:pt-100 sm:pb-70">
+            <h2 class="text-1">Проекты</h2>
+          </div>
+          <ul
+            class="mini-projects__list flex flex-col gap-y-32 sm:gap-y-80 sm:grid grid-cols-12 gap-x-36"
+          >
+            <li class="col-span-6">
+              <a
+                href="/next/projects-single/"
+                class="mini-project block pb-11 sm:pb-0 border-b border-black-60 sm:border-b-0"
+              >
+                <picture class="mb-16 sm:mb-20">
+                  <source
+                    src="https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp"
+                    class="aspect-16/11 object-cover sm:aspect-351/199"
+                    alt=""
+                  />
+                </picture>
+                <div
+                  class="mini-project__title flex flex-col sm:flex-row gap-y-32 items-start justify-between gap-x-30 sm:gap-x-58"
+                >
+                  <p class="text-17 sm:text-7">Нижний Новгород</p>
+                  <p class="text-21 text-black-20 sm:text-7">2023</p>
+                </div>
+              </a>
+            </li>
+            <li class="col-span-6">
+              <a
+                href="/next/projects-single/"
+                class="mini-project block pb-11 sm:pb-0 border-b border-black-60 sm:border-b-0"
+              >
+                <picture class="mb-16 sm:mb-20">
+                  <source
+                    src="https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp"
+                    class="aspect-16/11 object-cover sm:aspect-351/199"
+                    alt=""
+                  />
+                </picture>
+                <div
+                  class="mini-project__title flex flex-col sm:flex-row gap-y-32 items-start justify-between gap-x-30 sm:gap-x-58"
+                >
+                  <p class="text-17 sm:text-7">Нижний Новгород</p>
+                  <p class="text-21 text-black-20 sm:text-7">2023</p>
+                </div>
+              </a>
+            </li>
+            <li class="col-span-6">
+              <a
+                href="/next/projects-single/"
+                class="mini-project block pb-11 sm:pb-0 border-b border-black-60 sm:border-b-0"
+              >
+                <picture class="mb-16 sm:mb-20">
+                  <source
+                    src="https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp"
+                    class="aspect-16/11 object-cover sm:aspect-351/199"
+                    alt=""
+                  />
+                </picture>
+                <div
+                  class="mini-project__title flex flex-col sm:flex-row gap-y-32 items-start justify-between gap-x-30 sm:gap-x-58"
+                >
+                  <p class="text-17 sm:text-7">Нижний Новгород</p>
+                  <p class="text-21 text-black-20 sm:text-7">2023</p>
+                </div>
+              </a>
+            </li>
+            <li class="col-span-6">
+              <a
+                href="/next/projects-single/"
+                class="mini-project block pb-11 sm:pb-0 border-b border-black-60 sm:border-b-0"
+              >
+                <picture class="mb-16 sm:mb-20">
+                  <source
+                    src="https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp"
+                    class="aspect-16/11 object-cover sm:aspect-351/199"
+                    alt=""
+                  />
+                </picture>
+                <div
+                  class="mini-project__title flex flex-col sm:flex-row gap-y-32 items-start justify-between gap-x-30 sm:gap-x-58"
+                >
+                  <p class="text-17 sm:text-7">Нижний Новгород</p>
+                  <p class="text-21 text-black-20 sm:text-7">2023</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <div class="pt-60 pb-50 flex justify-center sm:pt-70 sm:pb-100">
+            <a href="#" class="button button-link">
+              <span class="text-17 sm:text-9 hovered-line-anim pb-2"
+                >Смотреть больше</span
+              >
+            </a>
+          </div>
+        </section>
+        <div class="main">
+          <div class="scrollable">
+            <div class="container"><div class="image-container"></div></div>
+          </div>
+        </div>
+
+        <!-- START PAGE END -->
+
+        <section
+          data-scroll-section
+          class="container pt-50 pb-50 sm:pt-100 sm:pb-100"
+        >
+          <h2
+            class="text-4 max-w-[200px] mb-40 sm:text-1 sm:mb-70 sm:max-w-none"
+          >
+            Другие типы освещений
+          </h2>
+          <div class="mini-lighting-types__list">
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+            <a
+              href="#"
+              class="mini-lighting-types__list__item relative pt-32 pb-40 block sm:pt-24 sm:pb-24 grid-cols-12 gap-x-36 bg-0 sm:grid sm:content-center"
+              style="
+                background-image: url('https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp');
+              "
+            >
+              <p
+                class="mini-lighting-types__list__title text-18 text-black-20 mb-8 col-span-6 sm:text-8 sm:mb-0 sm:text-black-10"
+              >
+                Освещение
+              </p>
+              <p
+                class="w-fit mini-lighting-types__list__text text-15 mb-16 col-span-5 sm:text-6 sm:mb-0 sm:pb-[1.5px]"
+              >
+                <span class="hovered-line-anim">Котедж поселков</span>
+              </p>
+              <div
+                class="mini-lighting-types__list__item__img z-20 aspect-32/25 bg-inherit bg-no-repeat bg-cover bg-center sm:aspect-333/221 sm:absolute sm:top-1/2 sm:-translate-y-1/2 sm:w-333"
+              ></div>
+              <div
+                class="list-item__border h-1 bg-black-60 rounded-2xl absolute bottom-0 top-auto left-0 z-10"
+              ></div>
+              <div class="list-item__hovered-el">
+                <div class="block icon-arrow-l ml-auto"></div>
+                <div class="list-item__hovered-el-cover"></div>
+              </div>
+            </a>
+          </div>
+          <div class="flex justify-center pt-10 sm:pt-70">
+            <a href="#" class="button button-link">
+              <span class="text-17 sm:text-9 hovered-line-anim pb-2">
+                Смотреть больше
+              </span>
+            </a>
+          </div>
+        </section>
+        <section
+          data-scroll-section
+          class="container feedback-block py-50 sm:py-100"
+        >
+          <div
+            class="grid-cols-12 gap-x-36 flex flex-col-reverse gap-y-32 sm:grid"
+          >
+            <div class="feedback-block__information col-span-6 flex flex-col">
+              <h2 class="text-1 hidden sm:block">Оставить заявку</h2>
+              <ul class="text-20 sm:text-8 mt-auto text-black-20">
+                <li>Название: ООО «Свет-Эксперт»</li>
+                <li>ОГРН: 1097746487651</li>
+                <li>ИНН: 1097746487651</li>
+                <li>Сайт разработан «Digital Five»</li>
+              </ul>
+            </div>
+            <form class="feedback col-span-6">
+              <h2 class="text-14 mb-10 sm:hidden">Оставить заявку</h2>
+              <label class="input input--name hovered-line-anim">
+                <span class="input__title">Имя</span>
+                <input class="input__item text-15 sm:text-7" type="text" />
+              </label>
+              <label class="input input--phone hovered-line-anim">
+                <span class="input__title">Телефон</span>
+                <input class="input__item text-15 sm:text-7" type="text" />
+              </label>
+              <label class="input input--email hovered-line-anim">
+                <span class="input__title">Email</span>
+                <input class="input__item text-15 sm:text-7" type="text" />
+              </label>
+              <label class="input input--comment hovered-line-anim">
+                <span class="input__title"
+                  >Комментарии <span>(необязательно)</span></span
+                >
+                <textarea
+                  class="input__item text-15 sm:text-7 textarea"
+                ></textarea>
+              </label>
+              <div class="button__container check__container">
+                <button type="submit" class="button button--primary" disabled>
+                  <span>Отправить</span>
+                </button>
+                <div class="checkbox-item flex align-top gap-8">
+                  <label class="checkbox">
+                    <input type="checkbox" />
+                    <div class="checkbox__item"></div>
+                  </label>
+                  <p class="text-20 text-black-60">
+                    Нажимая “Отправить” вы
+                    <a href="#" class="text-black-20"
+                      >соглашаетесь с обработкой персональных данных</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </form>
+            <div
+              class="submit-success__element flex-col max-w-[333px] justify-between h-full col-span-6"
+            >
+              <h4 class="text-14 sm:text-1 mb-32">
+                Заявка успешно отправлена!
+              </h4>
+              <p class="text-20 sm:text-8 text-black-30">
+                Мы изучим ваш запрос и свяжемся с вами в ближайшее время!
+              </p>
+              <a
+                href="/next/cases/"
+                class="button button--primary flex w-fit mt-160 sm:mt-176"
+              >
+                <span>К проектам</span>
+              </a>
+            </div>
+          </div>
+        </section>
+        <footer
+          data-scroll-section
+          class="footer pt-50 pb-16 sm:pt-100 sm:pb-28"
+        >
+          <div class="container sm:hidden">
+            <div
+              class="footer-top text-17 flex flex-col gap-y-50 pb-49 border-b border-black-60"
+            >
+              <a href="#" class="logo w-61 block">
+                <img src="./src/img/logo.png" alt="" />
+              </a>
+              <ul class="flex flex-col gap-y-16">
+                <li>
+                  <a class="hovered-line-anim" href="#">
+                    <span>Услуги</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="hovered-line-anim" href="#">
+                    <span>Проекты</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="hovered-line-anim" href="#">
+                    <span>О нас</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="hovered-line-anim" href="#">
+                    <span>Контакты</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="hovered-line-anim" href="#">
+                    <span>Пресс-центр</span></a
+                  >
+                </li>
+                <li>
+                  <a class="hovered-line-anim" href="#"
+                    ><span>Карта сайта</span>
+                  </a>
+                </li>
+              </ul>
+              <ul class="flex flex-col gap-y-16">
+                <li>
+                  <a href="tel:+74956444244"><span>+7 (495) 644-42-44</span></a>
+                </li>
+                <li>Москва, Очаковское шоссе, здание 34</li>
+              </ul>
+              <ul class="flex flex-col gap-y-16">
+                <li>
+                  <a class="hovered-line-anim" href="#">
+                    <span>X.com</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="hovered-line-anim" href="#">
+                    <span>Яндекс дзенн</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="hovered-line-anim" href="#">
+                    <span>Вконтакте</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-bot pt-16 text-20 text-black-40">
+              <a href="#" class="block"> Пользовательское соглашение </a>
+              <a href="#" class="mt-8 mb-40 block">
+                Политика конфиденциальности
+              </a>
+              <p class="block">Svet Expert 2014 — 2023 ©</p>
+            </div>
+          </div>
+          <div class="container hidden text-8 sm:block">
+            <div class="footer-top grid grid-cols-12 gap-x-36">
+              <a href="#" class="logo w-100 block col-span-3">
+                <img src="./src/img/logo.png" alt="" />
+              </a>
+              <ul class="col-span-3 pt-14 max-w-[229px]">
+                <li class="mb-20">
+                  Москва, Очаковское <br />
+                  шоссе, здание 34
+                </li>
+                <li>
+                  <a href="mailto:Coop@svet-expert.com">Coop@svet-expert.com</a>
+                </li>
+              </ul>
+              <div
+                class="col-span-4 whitespace-nowrap gap-x-36 flex justify-between pt-14"
+              >
+                <ul class="flex flex-col gap-y-8">
+                  <li><a href="#">Telegram</a></li>
+                  <li><a href="#">Twitter</a></li>
+                  <li><a href="#">YouTube</a></li>
+                </ul>
+                <ul class="flex flex-col gap-y-8">
+                  <li><a href="#">Услуги</a></li>
+                  <li><a href="#">Проекты</a></li>
+                  <li><a href="#">О нас</a></li>
+                </ul>
+                <ul class="flex flex-col gap-y-8 -mr-23">
+                  <li><a href="#">Контакты</a></li>
+                  <li><a href="#">Пресс-центр</a></li>
+                  <li><a href="#">Карта сайта</a></li>
+                </ul>
+              </div>
+              <a
+                href="#"
+                class="button button-link w-fit h-fit ml-auto mb-auto col-span-2 text-right pt-14"
+                id="connectButton2"
+                data-modal-target="connect2"
+                data-modal-close="headerOpenButton"
+                ><span class="hovered-line-anim">Связаться</span></a
+              >
+            </div>
+            <div class="h-1 bg-black-60 mt-85 mb-20 rounded-2xl"></div>
+            <div class="footer-bot text-black-40 grid grid-cols-12 gap-x-36">
+              <p class="col-span-6">Svet Expert 2014 — 2023 ©</p>
+              <a href="#" class="block col-span-3">
+                Политика конфиденциальности
+              </a>
+              <a href="#" class="col-span-3 flex justify-end">
+                Пользовательское соглашение
+              </a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <nav id="siteMenu" class="site-menu modal modal--right sm:hidden">
+      <div class="site-menu__container modal__container">
+        <div class="container--grid container block-scroll--mob">
+          <ul class="text-12">
+            <li class="current">
+              <a
+                href="#"
+                class="flex items-center gap-x-12"
+                id="servicesButton2"
+                data-modal-target="services"
+                data-modal-close="headerOpenButton"
+                ><span class="hovered-line-anim">Услуги</span>
+                <div class="list-item__hovered-el">
+                  <div class="block icon-arrow-l ml-auto"></div>
+                  <div class="list-item__hovered-el-cover"></div></div
+              ></a>
+            </li>
+            <li>
+              <a href="/next/about/"
+                ><span class="hovered-line-anim">О нас</span></a
+              >
+            </li>
+            <li>
+              <a href="/next/cases/"
+                ><span class="hovered-line-anim">Проекты</span></a
+              >
+            </li>
+            <li>
+              <a href="/next/news/"
+                ><span class="hovered-line-anim">Пресс — центр</span></a
+              >
+            </li>
+            <li>
+              <a href="/next/career/"
+                ><span class="hovered-line-anim">Карьера</span></a
+              >
+            </li>
+            <li>
+              <a href="/next/contacts/"
+                ><span class="hovered-line-anim">Контакты</span></a
+              >
+            </li>
+          </ul>
+          <div class="">
+            <div class="cont flex justify-between text-18">
+              <div class="cont__socials">
+                <p class="cont__title text-black-20">Соц. сети:</p>
+                <ul class="color--black80 sm-color--black100">
+                  <li><a href="#">Яндекс дзен</a></li>
+                  <li><a href="#">Вконтакте</a></li>
+                  <li><a href="#">Ютуб</a></li>
+                </ul>
+              </div>
+              <div class="cont__contacts">
+                <p class="cont__title text-black-20">Контакты:</p>
+                <ul class="color--black80 sm-color--black100">
+                  <li>
+                    <a href="mailto:info@diapazon.com">info@diapazon.com</a>
+                  </li>
+                  <li>
+                    <a href="tel:+74952333322">+7 (495)-233-33-22</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="overlay-menu"></div>
+      </div>
+    </nav>
+    <div id="services" class="services__modal modal modal--top">
+      <div
+        class="services__container modal__container overflow-auto sm:overflow-hidden sm:flex sm:items-center"
+      >
+        <div
+          class="services__wrapper modal__wrapper py-115 container flex flex-col-reverse gap-y-40 grid-cols-12 gap-x-36 sm:grid sm:gap-y-0"
+        >
+          <div class="services-left col-span-5 flex flex-col justify-between">
+            <ul class="flex gap-18 flex-col text-15 text-black-30 sm:hidden">
+              <li class="pb-3 border-b border-black-60 sm:pb-0 sm:border-b-0">
+                <a href="#">Проектирование </a>
+              </li>
+              <li class="pb-3 border-b border-black-60 sm:pb-0 sm:border-b-0">
+                <a href="#">Визуализация </a>
+              </li>
+              <li class="pb-3 border-b border-black-60 sm:pb-0 sm:border-b-0">
+                <a href="#">Мастер-планы городов</a>
+              </li>
+            </ul>
+            <ul
+              class="hidden gap-8 flex-col text-16 text-black-30 mb-30 sm:flex"
+            >
+              <li class="transition-colors hover:text-white-100">
+                <a href="#">Проектирование освещения </a>
+              </li>
+              <li class="transition-colors hover:text-white-100">
+                <a href="#">Визуализация освещения </a>
+              </li>
+              <li class="transition-colors hover:text-white-100">
+                <a href="#">Мастер-планы городов</a>
+              </li>
+            </ul>
+            <picture class="hidden max-w-[456px] sm:block">
+              <source
+                src="https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp"
+                type="image/webp"
+              />
+              <img
+                src="https://svet-expert.com/upload/resize_cache/iblock/6bf/720_950_0/6bf61dadc738ebb3727bfc6b6331f5f3.webp"
+                class="object-cover aspect-228/125"
+                alt=""
+              />
+            </picture>
+          </div>
+          <ol
+            class="services-right text-12 flex flex-col gap-8 w-fit col-start-7 col-span-6 sm:gap-24 sm:text-0.5"
+          >
+            <li class="pb-5 border-b border-black-60 sm:pb-0 sm:border-b-0">
+              <a href="#">Архитектурное</a>
+            </li>
+            <li class="pb-5 border-b border-black-60 sm:pb-0 sm:border-b-0">
+              <a href="#">Внутреннее</a>
+            </li>
+            <li class="pb-5 border-b border-black-60 sm:pb-0 sm:border-b-0">
+              <a href="#">Ландшафтное</a>
+            </li>
+            <li class="pb-5 border-b border-black-60 sm:pb-0 sm:border-b-0">
+              <a href="#">Уличное</a>
+            </li>
+            <li class="pb-5 border-b border-black-60 sm:pb-0 sm:border-b-0">
+              <a href="#">Мосты</a>
+            </li>
+            <li class="pb-5 border-b border-black-60 sm:pb-0 sm:border-b-0">
+              <a href="#">Спортивное</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div id="connect" class="connect modal modal--top">
+      <div
+        class="connect__container modal__container overflow-auto sm:overflow-hidden sm:flex sm:items-center"
+      >
+        <div
+          class="connect__wrapper modal__wrapper pt-120 pb-80 container flex flex-col-reverse gap-y-40 grid-cols-12 gap-x-36 sm:grid sm:gap-y-0"
+        >
+          <div
+            class="connect-left col-span-6 flex flex-col justify-end gap-y-20 sm:gap-y-48"
+          >
+            <div class="">
+              <p
+                class="text-black-40 mb-10 text-20 sm:mb-16 sm:text-black-20 sm:text-8"
+              >
+                Номер телефона
+              </p>
+              <a class="text-16 sm:text-6" href="tel:+74950239626"
+                >+7 (495)-023-96-26</a
+              >
+            </div>
+            <div>
+              <p
+                class="text-black-40 mb-10 text-20 sm:mb-16 sm:text-black-20 sm:text-8"
+              >
+                Email
+              </p>
+              <a class="text-16 sm:text-6" href="mailto:Coop@svet-expert.com"
+                >Coop@svet-expert.com</a
+              >
+            </div>
+          </div>
+          <div class="connect-right col-span-6">
+            <form class="feedback">
+              <h2 class="text-14 mb-10 sm:hidden">Оставить заявку</h2>
+              <label class="input input--name hovered-line-anim sm:mb-9">
+                <span class="input__title">Имя</span>
+                <input class="input__item text-15 sm:text-7" type="text" />
+              </label>
+              <label class="input input--phone hovered-line-anim sm:mb-9">
+                <span class="input__title">Телефон</span>
+                <input class="input__item text-15 sm:text-7" type="text" />
+              </label>
+              <label class="input input--email hovered-line-anim sm:mb-9">
+                <span class="input__title">Email</span>
+                <input class="input__item text-15 sm:text-7" type="text" />
+              </label>
+              <label class="input input--comment hovered-line-anim">
+                <span class="input__title"
+                  >Комментарии <span>(необязательно)</span></span
+                >
+                <textarea
+                  class="input__item text-15 sm:text-7 textarea"
+                ></textarea>
+              </label>
+              <div class="button__container check__container">
+                <button type="submit" class="button button--primary" disabled>
+                  <span>Отправить</span>
+                </button>
+                <div class="checkbox-item flex align-top gap-8">
+                  <label class="checkbox">
+                    <input type="checkbox" />
+                    <div class="checkbox__item"></div>
+                  </label>
+                  <p class="text-20 text-black-60">
+                    Нажимая “Отправить” вы
+                    <a href="#" class="text-black-20"
+                      >соглашаетесь с обработкой персональных данных</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </form>
+            <div
+              class="submit-success__element flex-col max-w-[333px] justify-between h-full"
+            >
+              <h4 class="text-14 sm:text-1 mb-32">
+                Заявка успешно отправлена!
+              </h4>
+              <p class="text-20 sm:text-8 text-black-30">
+                Мы изучим ваш запрос и свяжемся с вами в ближайшее время!
+              </p>
+              <a href="/next/cases/" class="button button--primary flex w-fit">
+                <span>К проектам</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="search" class="search modal modal--top">
+      <div
+        class="search__container modal__container pt-[112px] sm:pt-0 overflow-hidden sm:!flex sm:items-center"
+      >
+        <div class="sm:hidden container mb-36">
+          <div class="relative">
+            <button
+              class="absolute right-0 top-0"
+              onclick="$('.search-input').val('');"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.51992 16.4195L10.9393 12.0001L6.51992 7.58066L7.58058 6.52L12 10.9394L16.4194 6.52L17.4801 7.58066L13.0607 12.0001L17.4801 16.4195L16.4194 17.4802L12 13.0607L7.58058 17.4802L6.51992 16.4195Z"
+                  fill="white"
+                />
+              </svg>
+            </button>
+            <input
+              class="search-input search-input--mobile mb-24 title-search-input"
+              id=""
+            />
+          </div>
+        </div>
+        <div class="h-full w-full" id="search-insert">
+          <div
+            class="search__wrapper modal__wrapper sm:pt-[86px] sm:pb-56 container h-full grid-cols-1 sm:grid-cols-12 gap-x-36 grid relative"
+          >
+            <div
+              class="absolute hidden sm:block pointer-events-none bottom-52 top-auto w-full h-0 pt-193 right-40 z-10"
+              style="
+                background: linear-gradient(
+                  180deg,
+                  rgba(25, 25, 25, 0) 0%,
+                  #191919 88.54%
+                );
+              "
+            ></div>
+
+            <div
+              class="search-block sm:col-span-9 sm:col-start-4 2md:col-span-6 2md:col-start-7 overflow-y-auto"
+            >
+              <div class="search-block__empty">
+                <h5 class="text-6 sm:text-5 mb-11">Ничего не найдено</h5>
+                <p class="text-10 sm:text-8 text-black-30">
+                  Попробуйте изменить запрос
+                </p>
+              </div>
+              <div class="search-block__list h-full">
+                <div
+                  class="overflow-x-hidden flex flex-col gap-16 sm:block pb-100 sm:pb-50"
+                >
+                  <a
+                    href="#"
+                    class="search-block__item pb-12 sm:py-20 hovered-line-anim"
+                  >
+                    <img
+                      src="https://s3-alpha-sig.figma.com/img/a537/5821/a80ba724ae6699c43946579abd6fa431?Expires=1697414400&Signature=p4caWOdBC4Zg1H~Mi-nFBbT39QaPnW6n0~J3zoimNNC5V1zesd4pHnAfBf04SH-vKGA07rUer0WAQUYtZys5muTDONB8qxlH6KRwSPDwHc6nMzbX2sWSOuCXYdRfm9rzMBMBlGercg~LNar2y5isEr6~ZNNlzXHrsi1VHsLgEaCEiWFhyhjRvjW8WvyLNzoSONoxndx7-tX5XVEJiKsrWf-xm7I4JrwnN-vgyoaRFdJzGwnrQSiyqYb9Z1~iCTaGj1QZvt0MOi3hq1vRbZfjwab0FA5ySiYNPSfv0-VwLr~SbF2fplGTqTZXnE9QXcj~MLclv~ku~UyCJ5Y0Dhjylw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      alt=""
+                    />
+                    <div class="search-block__item__content">
+                      <h6>
+                        Измерения характеристик устройств отображения
+                        информацииИзмерения характеристик устройств отображения
+                        информации
+                      </h6>
+                      <p>
+                        Программа измерений электрических характеристик
+                        источников излучения (светильников, ламп, светодиодов)
+                        для потребителе Программа измерений электрических
+                        характеристик источников излучения (светильников, ламп,
+                        светодиодов) для потребителе
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="search-block__item pb-12 sm:py-20 hovered-line-anim"
+                  >
+                    <img
+                      src="https://s3-alpha-sig.figma.com/img/a537/5821/a80ba724ae6699c43946579abd6fa431?Expires=1697414400&Signature=p4caWOdBC4Zg1H~Mi-nFBbT39QaPnW6n0~J3zoimNNC5V1zesd4pHnAfBf04SH-vKGA07rUer0WAQUYtZys5muTDONB8qxlH6KRwSPDwHc6nMzbX2sWSOuCXYdRfm9rzMBMBlGercg~LNar2y5isEr6~ZNNlzXHrsi1VHsLgEaCEiWFhyhjRvjW8WvyLNzoSONoxndx7-tX5XVEJiKsrWf-xm7I4JrwnN-vgyoaRFdJzGwnrQSiyqYb9Z1~iCTaGj1QZvt0MOi3hq1vRbZfjwab0FA5ySiYNPSfv0-VwLr~SbF2fplGTqTZXnE9QXcj~MLclv~ku~UyCJ5Y0Dhjylw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      alt=""
+                    />
+                    <div class="search-block__item__content">
+                      <h6>
+                        Измерения характеристик устройств отображения
+                        информацииИзмерения характеристик устройств отображения
+                        информации
+                      </h6>
+                      <p>
+                        Программа измерений электрических характеристик
+                        источников излучения (светильников, ламп, светодиодов)
+                        для потребителе Программа измерений электрических
+                        характеристик источников излучения (светильников, ламп,
+                        светодиодов) для потребителе
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="search-block__item pb-12 sm:py-20 hovered-line-anim"
+                  >
+                    <img
+                      src="https://s3-alpha-sig.figma.com/img/a537/5821/a80ba724ae6699c43946579abd6fa431?Expires=1697414400&Signature=p4caWOdBC4Zg1H~Mi-nFBbT39QaPnW6n0~J3zoimNNC5V1zesd4pHnAfBf04SH-vKGA07rUer0WAQUYtZys5muTDONB8qxlH6KRwSPDwHc6nMzbX2sWSOuCXYdRfm9rzMBMBlGercg~LNar2y5isEr6~ZNNlzXHrsi1VHsLgEaCEiWFhyhjRvjW8WvyLNzoSONoxndx7-tX5XVEJiKsrWf-xm7I4JrwnN-vgyoaRFdJzGwnrQSiyqYb9Z1~iCTaGj1QZvt0MOi3hq1vRbZfjwab0FA5ySiYNPSfv0-VwLr~SbF2fplGTqTZXnE9QXcj~MLclv~ku~UyCJ5Y0Dhjylw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      alt=""
+                    />
+                    <div class="search-block__item__content">
+                      <h6>
+                        Измерения характеристик устройств отображения
+                        информацииИзмерения характеристик устройств отображения
+                        информации
+                      </h6>
+                      <p>
+                        Программа измерений электрических характеристик
+                        источников излучения (светильников, ламп, светодиодов)
+                        для потребителе Программа измерений электрических
+                        характеристик источников излучения (светильников, ламп,
+                        светодиодов) для потребителе
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="search-block__item pb-12 sm:py-20 hovered-line-anim"
+                  >
+                    <img
+                      src="https://s3-alpha-sig.figma.com/img/a537/5821/a80ba724ae6699c43946579abd6fa431?Expires=1697414400&Signature=p4caWOdBC4Zg1H~Mi-nFBbT39QaPnW6n0~J3zoimNNC5V1zesd4pHnAfBf04SH-vKGA07rUer0WAQUYtZys5muTDONB8qxlH6KRwSPDwHc6nMzbX2sWSOuCXYdRfm9rzMBMBlGercg~LNar2y5isEr6~ZNNlzXHrsi1VHsLgEaCEiWFhyhjRvjW8WvyLNzoSONoxndx7-tX5XVEJiKsrWf-xm7I4JrwnN-vgyoaRFdJzGwnrQSiyqYb9Z1~iCTaGj1QZvt0MOi3hq1vRbZfjwab0FA5ySiYNPSfv0-VwLr~SbF2fplGTqTZXnE9QXcj~MLclv~ku~UyCJ5Y0Dhjylw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      alt=""
+                    />
+                    <div class="search-block__item__content">
+                      <h6>
+                        Измерения характеристик устройств отображения
+                        информацииИзмерения характеристик устройств отображения
+                        информации
+                      </h6>
+                      <p>
+                        Программа измерений электрических характеристик
+                        источников излучения (светильников, ламп, светодиодов)
+                        для потребителе Программа измерений электрических
+                        характеристик источников излучения (светильников, ламп,
+                        светодиодов) для потребителе
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="search-block__item pb-12 sm:py-20 hovered-line-anim"
+                  >
+                    <img
+                      src="https://s3-alpha-sig.figma.com/img/a537/5821/a80ba724ae6699c43946579abd6fa431?Expires=1697414400&Signature=p4caWOdBC4Zg1H~Mi-nFBbT39QaPnW6n0~J3zoimNNC5V1zesd4pHnAfBf04SH-vKGA07rUer0WAQUYtZys5muTDONB8qxlH6KRwSPDwHc6nMzbX2sWSOuCXYdRfm9rzMBMBlGercg~LNar2y5isEr6~ZNNlzXHrsi1VHsLgEaCEiWFhyhjRvjW8WvyLNzoSONoxndx7-tX5XVEJiKsrWf-xm7I4JrwnN-vgyoaRFdJzGwnrQSiyqYb9Z1~iCTaGj1QZvt0MOi3hq1vRbZfjwab0FA5ySiYNPSfv0-VwLr~SbF2fplGTqTZXnE9QXcj~MLclv~ku~UyCJ5Y0Dhjylw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      alt=""
+                    />
+                    <div class="search-block__item__content">
+                      <h6>
+                        Измерения характеристик устройств отображения
+                        информацииИзмерения характеристик устройств отображения
+                        информации
+                      </h6>
+                      <p>
+                        Программа измерений электрических характеристик
+                        источников излучения (светильников, ламп, светодиодов)
+                        для потребителе Программа измерений электрических
+                        характеристик источников излучения (светильников, ламп,
+                        светодиодов) для потребителе
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="search-block__item pb-12 sm:py-20 hovered-line-anim"
+                  >
+                    <img
+                      src="https://s3-alpha-sig.figma.com/img/a537/5821/a80ba724ae6699c43946579abd6fa431?Expires=1697414400&Signature=p4caWOdBC4Zg1H~Mi-nFBbT39QaPnW6n0~J3zoimNNC5V1zesd4pHnAfBf04SH-vKGA07rUer0WAQUYtZys5muTDONB8qxlH6KRwSPDwHc6nMzbX2sWSOuCXYdRfm9rzMBMBlGercg~LNar2y5isEr6~ZNNlzXHrsi1VHsLgEaCEiWFhyhjRvjW8WvyLNzoSONoxndx7-tX5XVEJiKsrWf-xm7I4JrwnN-vgyoaRFdJzGwnrQSiyqYb9Z1~iCTaGj1QZvt0MOi3hq1vRbZfjwab0FA5ySiYNPSfv0-VwLr~SbF2fplGTqTZXnE9QXcj~MLclv~ku~UyCJ5Y0Dhjylw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      alt=""
+                    />
+                    <div class="search-block__item__content">
+                      <h6>
+                        Измерения характеристик устройств отображения
+                        информацииИзмерения характеристик устройств отображения
+                        информации
+                      </h6>
+                      <p>
+                        Программа измерений электрических характеристик
+                        источников излучения (светильников, ламп, светодиодов)
+                        для потребителе Программа измерений электрических
+                        характеристик источников излучения (светильников, ламп,
+                        светодиодов) для потребителе
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="search-block__item pb-12 sm:py-20 hovered-line-anim"
+                  >
+                    <img
+                      src="https://s3-alpha-sig.figma.com/img/a537/5821/a80ba724ae6699c43946579abd6fa431?Expires=1697414400&Signature=p4caWOdBC4Zg1H~Mi-nFBbT39QaPnW6n0~J3zoimNNC5V1zesd4pHnAfBf04SH-vKGA07rUer0WAQUYtZys5muTDONB8qxlH6KRwSPDwHc6nMzbX2sWSOuCXYdRfm9rzMBMBlGercg~LNar2y5isEr6~ZNNlzXHrsi1VHsLgEaCEiWFhyhjRvjW8WvyLNzoSONoxndx7-tX5XVEJiKsrWf-xm7I4JrwnN-vgyoaRFdJzGwnrQSiyqYb9Z1~iCTaGj1QZvt0MOi3hq1vRbZfjwab0FA5ySiYNPSfv0-VwLr~SbF2fplGTqTZXnE9QXcj~MLclv~ku~UyCJ5Y0Dhjylw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      alt=""
+                    />
+                    <div class="search-block__item__content">
+                      <h6>
+                        Измерения характеристик устройств отображения
+                        информацииИзмерения характеристик устройств отображения
+                        информации
+                      </h6>
+                      <p>
+                        Программа измерений электрических характеристик
+                        источников излучения (светильников, ламп, светодиодов)
+                        для потребителе Программа измерений электрических
+                        характеристик источников излучения (светильников, ламп,
+                        светодиодов) для потребителе
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="search-block__item pb-12 sm:py-20 hovered-line-anim"
+                  >
+                    <img
+                      src="https://s3-alpha-sig.figma.com/img/a537/5821/a80ba724ae6699c43946579abd6fa431?Expires=1697414400&Signature=p4caWOdBC4Zg1H~Mi-nFBbT39QaPnW6n0~J3zoimNNC5V1zesd4pHnAfBf04SH-vKGA07rUer0WAQUYtZys5muTDONB8qxlH6KRwSPDwHc6nMzbX2sWSOuCXYdRfm9rzMBMBlGercg~LNar2y5isEr6~ZNNlzXHrsi1VHsLgEaCEiWFhyhjRvjW8WvyLNzoSONoxndx7-tX5XVEJiKsrWf-xm7I4JrwnN-vgyoaRFdJzGwnrQSiyqYb9Z1~iCTaGj1QZvt0MOi3hq1vRbZfjwab0FA5ySiYNPSfv0-VwLr~SbF2fplGTqTZXnE9QXcj~MLclv~ku~UyCJ5Y0Dhjylw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      alt=""
+                    />
+                    <div class="search-block__item__content">
+                      <h6>
+                        Измерения характеристик устройств отображения
+                        информацииИзмерения характеристик устройств отображения
+                        информации
+                      </h6>
+                      <p>
+                        Программа измерений электрических характеристик
+                        источников излучения (светильников, ламп, светодиодов)
+                        для потребителе Программа измерений электрических
+                        характеристик источников излучения (светильников, ламп,
+                        светодиодов) для потребителе
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="search-block__item pb-12 sm:py-20 hovered-line-anim"
+                  >
+                    <img
+                      src="https://s3-alpha-sig.figma.com/img/a537/5821/a80ba724ae6699c43946579abd6fa431?Expires=1697414400&Signature=p4caWOdBC4Zg1H~Mi-nFBbT39QaPnW6n0~J3zoimNNC5V1zesd4pHnAfBf04SH-vKGA07rUer0WAQUYtZys5muTDONB8qxlH6KRwSPDwHc6nMzbX2sWSOuCXYdRfm9rzMBMBlGercg~LNar2y5isEr6~ZNNlzXHrsi1VHsLgEaCEiWFhyhjRvjW8WvyLNzoSONoxndx7-tX5XVEJiKsrWf-xm7I4JrwnN-vgyoaRFdJzGwnrQSiyqYb9Z1~iCTaGj1QZvt0MOi3hq1vRbZfjwab0FA5ySiYNPSfv0-VwLr~SbF2fplGTqTZXnE9QXcj~MLclv~ku~UyCJ5Y0Dhjylw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      alt=""
+                    />
+                    <div class="search-block__item__content">
+                      <h6>
+                        Измерения характеристик устройств отображения
+                        информацииИзмерения характеристик устройств отображения
+                        информации
+                      </h6>
+                      <p>
+                        Программа измерений электрических характеристик
+                        источников излучения (светильников, ламп, светодиодов)
+                        для потребителе Программа измерений электрических
+                        характеристик источников излучения (светильников, ламп,
+                        светодиодов) для потребителе
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="search-block__item pb-12 sm:py-20 hovered-line-anim"
+                  >
+                    <img
+                      src="https://s3-alpha-sig.figma.com/img/a537/5821/a80ba724ae6699c43946579abd6fa431?Expires=1697414400&Signature=p4caWOdBC4Zg1H~Mi-nFBbT39QaPnW6n0~J3zoimNNC5V1zesd4pHnAfBf04SH-vKGA07rUer0WAQUYtZys5muTDONB8qxlH6KRwSPDwHc6nMzbX2sWSOuCXYdRfm9rzMBMBlGercg~LNar2y5isEr6~ZNNlzXHrsi1VHsLgEaCEiWFhyhjRvjW8WvyLNzoSONoxndx7-tX5XVEJiKsrWf-xm7I4JrwnN-vgyoaRFdJzGwnrQSiyqYb9Z1~iCTaGj1QZvt0MOi3hq1vRbZfjwab0FA5ySiYNPSfv0-VwLr~SbF2fplGTqTZXnE9QXcj~MLclv~ku~UyCJ5Y0Dhjylw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      alt=""
+                    />
+                    <div class="search-block__item__content">
+                      <h6>
+                        Измерения характеристик устройств отображения
+                        информацииИзмерения характеристик устройств отображения
+                        информации
+                      </h6>
+                      <p>
+                        Программа измерений электрических характеристик
+                        источников излучения (светильников, ламп, светодиодов)
+                        для потребителе Программа измерений электрических
+                        характеристик источников излучения (светильников, ламп,
+                        светодиодов) для потребителе
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="search-block__item pb-12 sm:py-20 hovered-line-anim"
+                  >
+                    <img
+                      src="https://s3-alpha-sig.figma.com/img/a537/5821/a80ba724ae6699c43946579abd6fa431?Expires=1697414400&Signature=p4caWOdBC4Zg1H~Mi-nFBbT39QaPnW6n0~J3zoimNNC5V1zesd4pHnAfBf04SH-vKGA07rUer0WAQUYtZys5muTDONB8qxlH6KRwSPDwHc6nMzbX2sWSOuCXYdRfm9rzMBMBlGercg~LNar2y5isEr6~ZNNlzXHrsi1VHsLgEaCEiWFhyhjRvjW8WvyLNzoSONoxndx7-tX5XVEJiKsrWf-xm7I4JrwnN-vgyoaRFdJzGwnrQSiyqYb9Z1~iCTaGj1QZvt0MOi3hq1vRbZfjwab0FA5ySiYNPSfv0-VwLr~SbF2fplGTqTZXnE9QXcj~MLclv~ku~UyCJ5Y0Dhjylw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      alt=""
+                    />
+                    <div class="search-block__item__content">
+                      <h6>
+                        Измерения характеристик устройств отображения
+                        информацииИзмерения характеристик устройств отображения
+                        информации
+                      </h6>
+                      <p>
+                        Программа измерений электрических характеристик
+                        источников излучения (светильников, ламп, светодиодов)
+                        для потребителе Программа измерений электрических
+                        характеристик источников излучения (светильников, ламп,
+                        светодиодов) для потребителе
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="connect modal modal--centered modal__wrapper" id="connect2">
+      <div
+        class="connect__container modal__container sm:grid grid-cols-8 gap-x-36"
+      >
+        <div class="connect-block modal-block col-span-6 col-start-2">
+          <div class="modal__heading connect-block__heading">
+            <h4 class="text-14 sm:text-5 submit-success--hidden">
+              Оставить заявку
+            </h4>
+            <a
+              href="#"
+              class="flex items-center gap-x-2 modal__close-button ml-auto"
+            >
+              <span class="hidden sm:inline text-16">Закрыть</span>
+              <span class="h-fit">
+                <svg
+                  class="w-full max-w-[20px] h-full max-h-20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.43327 13.6834L9.11612 10.0006L5.43327 6.31771L6.31715 5.43382L10 9.11667L13.6828 5.43382L14.5667 6.31771L10.8839 10.0006L14.5667 13.6834L13.6828 14.5673L10 10.8844L6.31715 14.5673L5.43327 13.6834Z"
+                    fill="white"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+          <form class="feedback col-span-6">
+            <h2 class="text-14 mb-10 sm:hidden">Оставить заявку</h2>
+            <label class="input input--name hovered-line-anim">
+              <span class="input__title">Имя</span>
+              <input class="input__item text-15 sm:text-7" type="text" />
+            </label>
+            <label class="input input--phone hovered-line-anim">
+              <span class="input__title">Телефон</span>
+              <input class="input__item text-15 sm:text-7" type="text" />
+            </label>
+            <label class="input input--email hovered-line-anim">
+              <span class="input__title">Email</span>
+              <input class="input__item text-15 sm:text-7" type="text" />
+            </label>
+            <label class="input input--comment hovered-line-anim">
+              <span class="input__title"
+                >Комментарии <span>(необязательно)</span></span
+              >
+              <textarea
+                class="input__item text-15 sm:text-7 textarea"
+              ></textarea>
+            </label>
+            <div class="button__container check__container">
+              <button type="submit" class="button button--primary" disabled>
+                <span>Отправить</span>
+              </button>
+              <div class="checkbox-item flex align-top gap-8">
+                <label class="checkbox">
+                  <input type="checkbox" />
+                  <div class="checkbox__item"></div>
+                </label>
+                <p class="text-20 text-black-60">
+                  Нажимая “Отправить” вы
+                  <a href="#" class="text-black-20"
+                    >соглашаетесь с обработкой персональных данных</a
+                  >
+                </p>
+              </div>
+            </div>
+          </form>
+          <div
+            class="submit-success__element flex-col h-full text-center w-full"
+          >
+            <h4 class="text-14 sm:text-1 mb-16 sm:mb-24">
+              Заявка успешно отправлена!
+            </h4>
+            <p class="text-20 sm:text-8 text-black-30 mb-48">
+              Мы изучим ваш запрос и свяжемся с вами в ближайшее время!
+            </p>
+            <a
+              href="/next/cases/"
+              class="button button--primary flex w-fit m-auto mb-0"
+            >
+              <span>К проектам</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="connect modal modal--centered" id="connectCareer">
+      <div
+        class="connect__container modal__container sm:grid grid-cols-8 gap-x-36"
+      >
+        <div class="connect-block modal-block col-span-6 col-start-2">
+          <div class="modal__heading connect-block__heading">
+            <h4 class="text-14 sm:text-5">Оставить заявку</h4>
+            <a href="#" class="flex items-center gap-x-2 modal__close-button">
+              <span class="hidden sm:inline text-16">Закрыть</span>
+              <span class="h-fit">
+                <svg
+                  class="w-20 h-full max-h-20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.43327 13.6834L9.11612 10.0006L5.43327 6.31771L6.31715 5.43382L10 9.11667L13.6828 5.43382L14.5667 6.31771L10.8839 10.0006L14.5667 13.6834L13.6828 14.5673L10 10.8844L6.31715 14.5673L5.43327 13.6834Z"
+                    fill="white"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+          <form class="feedback col-span-6">
+            <h2 class="text-14 mb-10 sm:hidden">Оставить заявку</h2>
+            <label class="input input--name hovered-line-anim">
+              <span class="input__title">Имя</span>
+              <input class="input__item text-15 sm:text-7" type="text" />
+            </label>
+            <label class="input input--phone hovered-line-anim">
+              <span class="input__title">Телефон</span>
+              <input class="input__item text-15 sm:text-7" type="text" />
+            </label>
+            <label class="input input--email hovered-line-anim">
+              <span class="input__title">Email</span>
+              <input class="input__item text-15 sm:text-7" type="text" />
+            </label>
+            <label class="input input--comment hovered-line-anim">
+              <span class="input__title"
+                >Комментарии <span>(необязательно)</span></span
+              >
+              <textarea
+                class="input__item text-15 sm:text-7 textarea"
+              ></textarea>
+            </label>
+            <div class="button__container check__container">
+              <button type="submit" class="button button--primary" disabled>
+                <span>Отправить</span>
+              </button>
+              <div class="checkbox-item flex align-top gap-8">
+                <label class="checkbox">
+                  <input type="checkbox" />
+                  <div class="checkbox__item"></div>
+                </label>
+                <p class="text-20 text-black-60">
+                  Нажимая “Отправить” вы
+                  <a href="#" class="text-black-20"
+                    >соглашаетесь с обработкой персональных данных</a
+                  >
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      class="coockie fixed w-full sm:container bottom-0 sm:bottom-60 left-1/2 -translate-x-1/2 sm:flex"
+    >
+      <div
+        class="bg-black-80 py-20 px-20 sm:px-23 gap-y-30 gap-x-20 flex flex-col sm:flex-row justify-center sm:w-fit items-center sm:ml-auto"
+      >
+        <p class="text-18 sm:text-8 text-black-20 flex-grow sm:max-w-[467px]">
+          Продолжая использовать наш сайт, вы даете согласие
+          <a href="/privacy-policy/" class="text-white-100"
+            >на обработку файлов cookie и пользовательских данных.</a
+          >
+        </p>
+        <a
+          href="#"
+          type="submit"
+          class="button button--primary flex justify-center h-fit w-full sm:w-fit"
+        >
+          <span>Принять</span>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
