@@ -8,6 +8,7 @@ import { setPageLoader } from "./loader";
 import { customVideo } from "./video";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { loadMore } from "./lodaMore";
 
 documentHeight();
 $(window).on("resize", documentHeight);
@@ -69,11 +70,12 @@ $(document).ready(function () {
   setSliders(scrollset);
   Modals();
   setAnims(scrollset);
+  loadMore(scrollset, ScrollTrigger);
 
   if ($("#ajaxOutput").length > 0) {
-    var target = document.querySelector("#ajaxOutput");
+    const target = document.querySelector("#ajaxOutput");
 
-    var observer = new MutationObserver(function (mutations) {
+    const observer = new MutationObserver(function (mutations) {
       mutations.forEach(function (mutation) {
         scrollset.update();
         ScrollTrigger.update();
@@ -81,23 +83,7 @@ $(document).ready(function () {
       });
     });
 
-    var config = { attributes: true, childList: true, characterData: true };
-
-    observer.observe(target, config);
-  }
-
-  if ($("#ajaxOutput .loadmore_wrap").length > 0) {
-    var target = document.querySelector(".loadmore_wrap");
-
-    var observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (mutation) {
-        scrollset.update();
-        ScrollTrigger.update();
-        ScrollTrigger.refresh();
-      });
-    });
-
-    var config = { attributes: true, childList: true, characterData: true };
+    const config = { attributes: true, childList: true, characterData: true };
 
     observer.observe(target, config);
   }

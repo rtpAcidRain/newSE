@@ -66,6 +66,13 @@
     }
   }
 
+  &-link {
+    @apply text-17;
+    .hovered-line-anim {
+      padding-bottom: 2px;
+    }
+  }
+
   &:disabled,
   &.disabled {
     @apply bg-transparent border-black-60 cursor-default;

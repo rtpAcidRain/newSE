@@ -136,7 +136,7 @@ footer {
 }
 
 .services__item {
-  @apply pb-5 border-black-60 border-solid border-b w-fit rounded-lg;
+  @apply pb-5 border-black-60 border-solid border-b w-fit;
 
   .services__small & {
     @apply pb-3;
