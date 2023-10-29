@@ -376,24 +376,30 @@ export function setForms() {
 
   if ($(".search-input").length > 0) {
     const search = $(".search-input");
-    const searchInput = search.find("input");
+    // const searchInput = search.find("input");
 
-    searchInput.on("focus", function () {
-      search.addClass("active");
-    });
+    // searchInput.on("focus", function () {
+    //   search.addClass("active");
+    // });
 
-    searchInput.on("blur", function () {
-      if ($(this).val().trim().length < 1) {
-        search.removeClass("active");
-      }
-    });
+    // searchInput.on("blur", function () {
+    //   if ($(this).val().trim().length < 1) {
+    //     search.removeClass("active");
+    //   }
+    // });
 
-    searchInput.on("input", function () {
-      if ($(this).val().trim().length < 1) {
-        search.find(".search-input__reset").addClass("display-none");
-      } else {
-        search.find(".search-input__reset").removeClass("display-none");
-      }
+    // searchInput.on("input", function () {
+    //   if ($(this).val().trim().length < 1) {
+    //     search.find(".search-input__reset").addClass("display-none");
+    //   } else {
+    //     search.find(".search-input__reset").removeClass("display-none");
+    //   }
+    // });
+
+    $(".search-block__recomendation a").on("click", function (e) {
+      e.preventDefault();
+
+      search.val($(this).find("span").text());
     });
   }
 }

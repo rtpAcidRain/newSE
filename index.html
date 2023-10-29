@@ -853,6 +853,7 @@
       </header>
       <div data-scroll-container>
         <!-- START PAGE -->
+
         <section
           class="pin-container relative"
           data-scroll-section
@@ -901,7 +902,7 @@
                 class="container animated-video__services services pt-100 pb-50 left-1/2 top-1/2 flex items-center justify-center flex-col lg:h-full lg:pt-20 lg:pb-20 lg:absolute lg:-translate-x-1/2 lg:-translate-y-1/2"
               >
                 <div
-                  class="services__big text-12 text-white-100 max-w-[1396px] w-full sm:text-0"
+                  class="services__big hidden lg:block text-12 text-white-100 max-w-[1396px] w-full sm:text-0"
                 >
                   <div
                     class="flex flex-col gap-x-182 gap-y-8 lg:flex-row lg:pl-35 mainBloks:gap-x-252 mainBloks:pl-65"
@@ -922,8 +923,18 @@
                     <a class="services__item" href="#">Спортивное</a>
                   </div>
                 </div>
+                <div
+                  class="flex flex-col gap-8 text-12 items-start w-full lg:hidden"
+                >
+                  <a class="services__item" href="#">Архитектурное</a>
+                  <a class="services__item" href="#">Внутреннее</a>
+                  <a class="services__item" href="#">Ландшафтное</a>
+                  <a class="services__item" href="#">Уличное</a>
+                  <a class="services__item" href="#">Мосты</a>
+                  <a class="services__item" href="#">Спортивное</a>
+                </div>
                 <ul
-                  class="services__small mt-40 flex flex-col gap-x-59 gap-y-18 justify-center text-16 text-black-30 max-w-[1396px] w-full sm:text-2 sm:mt-50 lg:flex-row"
+                  class="services__small mt-40 flex flex-col gap-x-59 gap-y-18 justify-center text-15 text-black-30 max-w-[1396px] w-full sm:text-2 sm:mt-50 lg:flex-row"
                 >
                   <li class="services__item">
                     <a href="#">Проектирование </a>
@@ -931,6 +942,9 @@
                   <li class="services__item"><a href="#">Визуализация </a></li>
                   <li class="services__item">
                     <a href="#">Мастер-планы городов</a>
+                  </li>
+                  <li class="services__item">
+                    <a href="#">Энергосервисный контракт</a>
                   </li>
                 </ul>
               </div>
@@ -940,7 +954,7 @@
             <div class="mini-projects__container container flex flex-col">
               <div class="mini-project__line">
                 <div
-                  class="border-black-70 rounded-sm pt-50 border-b mb-50 sm:mb-200 sm:border-b-0 sm:pt-80 sm:border-t"
+                  class="border-black-70 pt-50 mb-50 sm:mb-200 sm:pt-80 sm:border-t"
                 >
                   <div
                     class="mini-project__line__header flex flex-col gap-y-30 sm:grid grid-cols-12 gap-x-36 mb-50 sm:mb-80"
@@ -982,8 +996,10 @@
                       <div
                         class="mini-project__title flex items-start justify-between gap-x-30 sm:gap-x-58"
                       >
-                        <p class="text-17 sm:text-7">Нижний Новгород</p>
-                        <p class="text-21 text-black-20 sm:text-7">2023</p>
+                        <p class="text-16 sm:text-7">
+                          Monolithic works completed at N’ICE LOFT
+                        </p>
+                        <p class="text-20 text-black-20 sm:text-7">2023</p>
                       </div>
                     </a>
                     <a href="#" class="mini-project block gsap-r col-span-6">
@@ -1001,7 +1017,7 @@
                       <div
                         class="mini-project__title flex items-start justify-between gap-x-30 sm:gap-x-58"
                       >
-                        <p class="text-17 sm:text-7">Нижний Новгород</p>
+                        <p class="text-16 sm:text-7">Нижний Новгород</p>
                         <p class="text-21 text-black-20 sm:text-7">2023</p>
                       </div>
                     </a>
@@ -1010,7 +1026,7 @@
               </div>
               <div class="mini-project__line">
                 <div
-                  class="border-black-70 rounded-sm pt-50 border-b mb-50 sm:mb-200 sm:border-b-0 sm:pt-80 sm:border-t"
+                  class="border-black-70 pt-50 mb-50 sm:mb-200 sm:pt-80 sm:border-t"
                 >
                   <div
                     class="mini-project__line__header flex flex-col gap-y-30 sm:grid grid-cols-12 gap-x-36 mb-50 sm:mb-80"
@@ -1046,7 +1062,7 @@
                       <div
                         class="mini-project__title flex items-start justify-between gap-x-30 sm:gap-x-58"
                       >
-                        <p class="text-17 sm:text-7">Нижний Новгород</p>
+                        <p class="text-16 sm:text-7">Нижний Новгород</p>
                         <p class="text-21 text-black-20 sm:text-7">2023</p>
                       </div>
                     </a>
@@ -1065,7 +1081,7 @@
                       <div
                         class="mini-project__title flex items-start justify-between gap-x-30 sm:gap-x-58"
                       >
-                        <p class="text-17 sm:text-7">Нижний Новгород</p>
+                        <p class="text-16 sm:text-7">Нижний Новгород</p>
                         <p class="text-21 text-black-20 sm:text-7">2023</p>
                       </div>
                     </a>
@@ -1074,7 +1090,7 @@
               </div>
               <div class="mini-project__line">
                 <div
-                  class="border-black-70 rounded-sm pt-50 border-b mb-50 sm:mb-200 sm:border-b-0 sm:pt-80 sm:border-t"
+                  class="border-black-70 pt-50 mb-50 sm:mb-200 sm:pt-80 sm:border-t"
                 >
                   <div
                     class="mini-project__line__header flex flex-col gap-y-30 sm:grid grid-cols-12 gap-x-36 mb-50 sm:mb-80"
@@ -1110,7 +1126,7 @@
                       <div
                         class="mini-project__title flex items-start justify-between gap-x-30 sm:gap-x-58"
                       >
-                        <p class="text-17 sm:text-7">Нижний Новгород</p>
+                        <p class="text-16 sm:text-7">Нижний Новгород</p>
                         <p class="text-21 text-black-20 sm:text-7">2023</p>
                       </div>
                     </a>
@@ -1129,7 +1145,7 @@
                       <div
                         class="mini-project__title flex items-start justify-between gap-x-30 sm:gap-x-58"
                       >
-                        <p class="text-17 sm:text-7">Нижний Новгород</p>
+                        <p class="text-16 sm:text-7">Нижний Новгород</p>
                         <p class="text-21 text-black-20 sm:text-7">2023</p>
                       </div>
                     </a>
@@ -1153,7 +1169,7 @@
           <div class="stages__pag col-span-4 flex flex-col">
             <h2 class="text-15 sm:text-6">Этапы работ</h2>
             <div class="sm:pt-187">
-              <ul class="flex flex-col gap-24 text-black-60">
+              <ul class="flex flex-col gap-16 sm:gap-10 text-black-60">
                 <div class="stages__pag__item flex gap-10 items-end active">
                   <span class="text-21 mb-5 sm:mb-3 sm:text-11">01</span>
                   <span class="text-13 sm:text-1">Pre-sales</span>
@@ -1193,7 +1209,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1221,7 +1237,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1238,7 +1254,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1255,7 +1271,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1272,7 +1288,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1289,7 +1305,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1306,7 +1322,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1323,7 +1339,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1340,7 +1356,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1365,7 +1381,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1393,7 +1409,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1410,7 +1426,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1427,7 +1443,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1444,7 +1460,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1461,7 +1477,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1478,7 +1494,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1495,7 +1511,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1512,7 +1528,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1537,7 +1553,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1554,7 +1570,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1571,7 +1587,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1588,7 +1604,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1605,7 +1621,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1622,7 +1638,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1639,7 +1655,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1656,7 +1672,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -1673,7 +1689,7 @@
                   <div class="text-16 sm:text-6">
                     Светотехнический расчет <span></span>
                   </div>
-                  <div class="text-20 sm:text-8">
+                  <div class="text-18 sm:text-8 pb-2">
                     <span>
                       <span class="pt-16 pr-24 sm:pt-20 sm:pr-104">
                         Создадим альбом со светотехническим расчетом, который
@@ -2673,32 +2689,32 @@
               </a>
               <ul class="flex flex-col gap-y-16">
                 <li>
-                  <a class="hovered-line-anim" href="#">
-                    <span>Услуги</span>
-                  </a>
-                </li>
-                <li>
-                  <a class="hovered-line-anim" href="#">
+                  <a class="hovered-line-anim text-17 pb-2" href="/cases/">
                     <span>Проекты</span>
                   </a>
                 </li>
                 <li>
-                  <a class="hovered-line-anim" href="#">
+                  <a class="hovered-line-anim text-17 pb-2" href="/career/">
+                    <span>Карьера</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="hovered-line-anim text-17 pb-2" href="/about/">
                     <span>О нас</span>
                   </a>
                 </li>
                 <li>
-                  <a class="hovered-line-anim" href="#">
+                  <a class="hovered-line-anim text-17 pb-2" href="/contacts/">
                     <span>Контакты</span>
                   </a>
                 </li>
                 <li>
-                  <a class="hovered-line-anim" href="#">
+                  <a class="hovered-line-anim text-17 pb-2" href="/news/">
                     <span>Пресс-центр</span></a
                   >
                 </li>
                 <li>
-                  <a class="hovered-line-anim" href="#"
+                  <a class="hovered-line-anim text-17 pb-2" href="/sitemap/"
                     ><span>Карта сайта</span>
                   </a>
                 </li>
@@ -3027,7 +3043,11 @@
           <div class="relative">
             <button
               class="absolute right-0 top-0"
-              onclick="$('.search-input').val('');"
+              onclick="
+                $('.search-input').val(''); 
+                jsControl_full.onChange(); 
+                return false
+              "
             >
               <svg
                 width="24"
@@ -3072,10 +3092,46 @@
                   Попробуйте изменить запрос
                 </p>
               </div>
+              <div class="search-block__recomendation">
+                <h5 class="text-6 sm:text-5 mb-24">Рекомендуем для вас</h5>
+                <ul class="w-full flex flex-col gap-12 sm:gap-14">
+                  <a
+                    href="#"
+                    class="hovered-line-anim pb-12 w-full text-10 block text-black-20 transition-colors hover:text-white-100"
+                  >
+                    <span>Мастер-план Нижний Новгород</span>
+                  </a>
+                  <a
+                    href="#"
+                    class="hovered-line-anim pb-12 w-full text-10 block text-black-20 transition-colors hover:text-white-100"
+                  >
+                    <span>Мастер-план Мурманск</span>
+                  </a>
+                  <a
+                    href="#"
+                    class="hovered-line-anim pb-12 w-full text-10 block text-black-20 transition-colors hover:text-white-100"
+                  >
+                    <span>Освещение Ярославля</span>
+                  </a>
+                  <a
+                    href="#"
+                    class="hovered-line-anim pb-12 w-full text-10 block text-black-20 transition-colors hover:text-white-100"
+                  >
+                    <span>ALCON Tower</span>
+                  </a>
+                  <a
+                    href="#"
+                    class="hovered-line-anim pb-12 w-full text-10 block text-black-20 transition-colors hover:text-white-100"
+                  >
+                    <span>The Residences at Mandarin Oriental, Moscow</span>
+                  </a>
+                </ul>
+              </div>
               <div class="search-block__list h-full">
                 <div
-                  class="overflow-x-hidden flex flex-col gap-16 sm:block pb-100 sm:pb-50"
+                  class="overflow-x-hidden flex flex-col gap-16 sm:block pb-100 sm:pb-160"
                 >
+                  <h6 class="search-block__title">Мастер-планы</h6>
                   <a
                     href="#"
                     class="search-block__item pb-12 sm:py-20 hovered-line-anim"
@@ -3099,6 +3155,7 @@
                       </p>
                     </div>
                   </a>
+                  <h6 class="search-block__title">Мастер-планы</h6>
                   <a
                     href="#"
                     class="search-block__item pb-12 sm:py-20 hovered-line-anim"

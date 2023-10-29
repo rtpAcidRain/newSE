@@ -100,7 +100,7 @@ footer {
   z-index: 9999;
 }
 
-.search-blockm::-webkit-scrollbar,
+.search-block::-webkit-scrollbar,
 ::-webkit-scrollbar {
   width: 2px;
   height: 2px;
@@ -108,12 +108,12 @@ footer {
   border-radius: 100px;
 }
 
-.search-blockm::-webkit-scrollbar-track,
+.search-block::-webkit-scrollbar-track,
 ::-webkit-scrollbar-track {
   @apply bg-black-60;
 }
 
-.search-blockm::-webkit-scrollbar-thumb,
+.search-block::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb {
   @apply bg-white-100;
   border-radius: 100px;
@@ -369,6 +369,10 @@ footer {
     overflow: hidden;
     display: block;
   }
+}
+
+.mini-project {
+  @apply pb-40 border-b border-black-60 sm:pb-0 sm:border-b-0;
 }
 
 .page-container {
@@ -820,10 +824,16 @@ footer {
 
 .mini-project__title {
   & > p:first-child {
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    @apply w-full sm:w-auto;
+    @apply w-full sm:w-auto text-16 sm:text-7;
+  }
+
+  & > p:last-child {
+    @apply text-20 sm:text-7 mt-5 mr-2 sm:mt-0 sm:mr-0;
   }
 }
 

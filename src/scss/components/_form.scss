@@ -201,9 +201,9 @@ pre {
 }
 
 .checkbox {
-  @apply relative w-16 h-16;
+  @apply relative h-24 w-24;
 
-  min-width: 16px;
+  min-width: calc(var(--scale-rem) * 2.4);
 
   &__item {
     &::before,
@@ -215,7 +215,7 @@ pre {
 
     &::before {
       content: "";
-      @apply border-2 border-black-60  inset-2;
+      @apply border-2 border-black-60  inset-3;
       transition: border-color var(--transition);
     }
 
@@ -277,17 +277,6 @@ pre {
     &.active {
       .input__title {
         @apply text-11;
-      }
-    }
-  }
-
-  .checkbox {
-    @apply h-24 w-24;
-    min-width: calc(var(--scale-rem) * 2.4);
-
-    &__item {
-      &::before {
-        @apply inset-3;
       }
     }
   }

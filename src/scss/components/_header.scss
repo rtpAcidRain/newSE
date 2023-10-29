@@ -261,6 +261,21 @@
 
   &-block {
     width: 100%;
+    // &__recomendation {
+    //   &:not(:first-child) {
+    //     margin-top: 32px;
+    //   }
+    // }
+    .search.modal--transition & {
+      overflow: hidden !important;
+    }
+
+    &__title {
+      @apply text-18 text-black-20;
+      &:not(:first-child) {
+        margin-top: 32px;
+      }
+    }
     @screen sm {
       position: absolute;
       top: 86px;
@@ -268,6 +283,17 @@
       right: -17px;
       padding-right: 17px;
       left: 0;
+      // &__recomendation {
+      //   &:not(:first-child) {
+      //     margin-top: 30px;
+      //   }
+      // }
+      &__title {
+        @apply text-9;
+        &:not(:first-child) {
+          margin-top: 30px;
+        }
+      }
     }
   }
 
@@ -328,6 +354,10 @@
       }
     }
   }
+}
+
+.search-input {
+  // padding-right: 26px;
 }
 
 .title-search-result {
@@ -912,4 +942,9 @@
       }
     }
   }
+}
+
+.isservicesOpened .header.scroll,
+.services__container {
+  @apply bg-black  sm:bg-black-100 #{!important};
 }
