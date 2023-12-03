@@ -128,6 +128,7 @@ export function loaderOut(scrollset, videos) {
           } else {
             $("html").css("overflow", "");
           }
+
           ScrollTrigger.update();
           ScrollTrigger.refresh();
         },

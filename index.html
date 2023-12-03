@@ -754,7 +754,7 @@
             />
           </a>
           <div
-            class="hidden 2md:col-span-2 nav__item header__open-button services-button sm:block"
+            class="hidden sm:col-span-2 nav__item header__open-button services-button sm:block"
             id="servicesButton"
             data-modal-target="services"
           >
@@ -782,24 +782,30 @@
           >
             <span>Связаться</span>
           </a>
-          <nav class="nav col-span-7 sm:text-black-10 block 2md:col-span-5">
-            <ul class="flex gap-x-32 items-center">
-              <li class="nav__item hidden sm:block">
-                <a href="#"><span>Проекты</span></a>
-              </li>
-              <li class="nav__item hidden sm:block">
-                <a href="#"> <span>О нас</span></a>
-              </li>
-              <li class="nav__item hidden sm:block">
-                <a href="#"><span>Пресс-центр</span></a>
-              </li>
-              <li class="nav__item hidden sm:block">
-                <a href="/career/"><span>Карьера </span></a>
-              </li>
-              <li class="nav__item hidden sm:block">
-                <a href="/contacts/"> <span>Контакты</span></a>
-              </li>
-              <li class="nav__item search-button__container">
+          <div
+            class="sm:flex items-center justify-between col-span-8 2md:col-span-6"
+          >
+            <nav class="nav sm:text-black-10 block">
+              <ul class="flex gap-x-27 items-center">
+                <li class="nav__item hidden sm:block">
+                  <a href="#"><span>Проекты</span></a>
+                </li>
+                <li class="nav__item hidden sm:block">
+                  <a href="#"> <span>О нас</span></a>
+                </li>
+                <li class="nav__item hidden sm:block">
+                  <a href="#"><span>Пресс-центр</span></a>
+                </li>
+                <li class="nav__item hidden sm:block">
+                  <a href="/career/"><span>Карьера </span></a>
+                </li>
+                <li class="nav__item hidden sm:block">
+                  <a href="/contacts/"> <span>Контакты</span></a>
+                </li>
+              </ul>
+            </nav>
+            <div class="flex gap-16 items-center flex-1">
+              <div class="nav__item search-button__container">
                 <div class="flex justify-end relative search-button__wrapper">
                   <a
                     class="w-[24px] h-[24px] stroke-white-100 right-0 search-toggler"
@@ -823,32 +829,38 @@
                   </a>
                   <input type="text" class="search-input" />
                 </div>
-              </li>
-            </ul>
-          </nav>
+              </div>
+              <a
+                href="#"
+                class="hidden sm:flex justify-center items-center sm:text-9 uppercase transition-colors hover:text-orange-100"
+              >
+                <span class="">RU</span>
+              </a>
+              <a
+                href="#"
+                class="button button-link hidden justify-end sm:flex col-start-12 h-fit"
+                id="connectButton"
+                data-modal-target="connect"
+                data-modal-close="headerOpenButton"
+              >
+                <span class="hovered-line-anim">Связаться</span>
+              </a>
 
-          <a
-            href="#"
-            class="button button-link hidden justify-end sm:flex col-start-12"
-            id="connectButton"
-            data-modal-target="connect"
-            data-modal-close="headerOpenButton"
-          >
-            <span class="hovered-line-anim">Связаться</span>
-          </a>
-          <a
-            href="#"
-            class="menu__button header__open-button header__close-button sm:hidden"
-            id="headerOpenButton"
-            data-modal-target="siteMenu"
-          >
-            <div class="NavIcon cursor-stick-area">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <a
+                href="#"
+                class="menu__button header__open-button header__close-button sm:hidden"
+                id="headerOpenButton"
+                data-modal-target="siteMenu"
+              >
+                <div class="NavIcon cursor-stick-area">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </a>
             </div>
-          </a>
+          </div>
         </div>
       </header>
       <div data-scroll-container>

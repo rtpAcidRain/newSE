@@ -226,6 +226,12 @@ footer {
   }
 }
 
+video[poster] {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .list-item__hovered-el {
   @apply hidden sm:flex items-center relative opacity-0;
 
@@ -434,7 +440,7 @@ footer {
 }
 
 .filters {
-  @apply flex gap-12 overflow-auto;
+  @apply flex gap-12 overflow-auto sm:flex-wrap;
   .fil {
     @apply h-fit border transition-colors text-11 rounded-[7px] py-3 px-11 border-black-60 block whitespace-nowrap w-fit;
 
@@ -1325,5 +1331,17 @@ footer {
 @screen xl {
   .has-scroll-init.has-scroll-smooth .mini-project__line {
     min-height: var(--doc-height);
+  }
+}
+
+@media (min-width: 668px) and (max-aspect-ratio: 13 / 9) and (max-height: 499px),
+  (min-width: 668px) and (max-aspect-ratio: 13 / 9) and (max-width: 1440px),
+  (min-width: 668px) and (min-height: 416px) and (max-height: 499px),
+  (min-width: 668px) and (min-height: 416px) and (max-width: 1440px),
+  (min-width: 980px) and (max-height: 499px),
+  (min-width: 980px) and (max-width: 1440px),
+  (min-width: 1440px) {
+  .langen .sm\:text-0 {
+    line-height: 1.3em !important;
   }
 }

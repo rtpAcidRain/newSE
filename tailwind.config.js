@@ -336,6 +336,7 @@ export default {
         30: "calc(var(--scale-rem) * 3)",
         29: "calc(var(--scale-rem) * 2.9)",
         28: "calc(var(--scale-rem) * 2.8)",
+        27: "calc(var(--scale-rem) * 2.6)",
         26: "calc(var(--scale-rem) * 2.6)",
         25: "calc(var(--scale-rem) * 2.5)",
         24: "calc(var(--scale-rem) * 2.4)",
