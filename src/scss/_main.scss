@@ -158,10 +158,26 @@ footer {
   }
 
   & > div:first-child {
-    @apply flex gap-4 justify-between;
+    @apply flex gap-4 justify-between relative;
+
+    &::before,
+    &::after {
+      content: "";
+      @apply bg-black-20 absolute;
+      // top: 5px;
+      right: 5px;
+      width: 14px;
+      height: 1.5px;
+      display: block;
+    }
+
+    &::after {
+      @apply rotate-90;
+      transition: width var(--halftransition);
+    }
 
     & span {
-      @apply relative block;
+      @apply relative block hidden;
       width: 24px;
       height: 24px;
 
@@ -480,6 +496,7 @@ video[poster] {
 
 .news-single__content {
   li,
+  .news_text,
   p {
     @apply text-18  text-black-10;
     &:not(:last-child) {
@@ -1078,6 +1095,7 @@ video[poster] {
 
   .news-single__content {
     li,
+    .news_text,
     p {
       @apply text-8;
     }

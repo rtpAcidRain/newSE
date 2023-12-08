@@ -298,7 +298,7 @@
   }
 
   &-button__container {
-    @apply sm:ml-auto w-24;
+    @apply w-24 sm:ml-auto sm:-mr-20;
     transition: width 0.4s ease;
   }
 
@@ -377,7 +377,7 @@
   }
   .search {
     &-button__container {
-      @apply w-full;
+      @apply w-full sm:ml-123;
     }
   }
 }
