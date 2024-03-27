@@ -131,6 +131,12 @@ export function loaderOut(scrollset, videos) {
 
           ScrollTrigger.update();
           ScrollTrigger.refresh();
+          if ($(".has-scroll-init").hasClass("has-scroll-smooth")) {
+            const { hash } = location;
+            if (hash) {
+              scrollset.scrollTo(`${hash}`, { offset: -82 });
+            }
+          }
         },
       });
     },
